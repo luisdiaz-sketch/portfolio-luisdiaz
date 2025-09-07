@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Luis Díaz — Growth & RevOps Portfolio</title>
-  <meta name="description" content="Portafolio de marketing y growth B2B de Luis Díaz: ABM outbound, RevOps, automatización con Google Apps Script, dashboards y resultados medibles." />
+  <title>Luis Díaz — Growth, RevOps & Automation</title>
+  <meta name="description" content="Portafolio de Luis Díaz. Growth marketer & RevOps builder: ABM outbound, automatización con Apps Script, dashboards y liderazgo operativo. Resultados medibles: 230+ reuniones, 35 en una semana, 6 cuentas de LinkedIn en paralelo y duplicación de conversión." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
       --bg: #0b0c10;           /* negro mate */
-      --card: #111319;
+      --card: #10121a;
       --text: #E6E8EC;
       --muted: #A6ACB9;
       --electric: #2F8CFF;     /* azul eléctrico */
       --emerald: #19C37D;      /* verde esmeralda */
       --violet: #9B5CFF;       /* violeta neón */
       --accent: linear-gradient(90deg, var(--electric), var(--violet));
-      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+      --shadow: 0 12px 34px rgba(0,0,0,.35);
       --radius: 16px;
     }
     *{box-sizing:border-box}
@@ -36,23 +36,21 @@
     .btn.primary{background:var(--accent);color:#0d1220;border:none}
     .btn.ghost{border-color:#2a3042}
 
-    /* HERO */
     .hero{position:relative;padding:96px 0 40px;overflow:hidden}
     .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:36px}
     .headline{font-family:"Space Grotesk",Inter,sans-serif;font-size:48px;line-height:1.06;margin:0 0 16px;font-weight:800;letter-spacing:.4px}
-    .sub{color:var(--muted);max-width:680px;font-size:18px}
+    .sub{color:var(--muted);max-width:720px;font-size:18px}
     .chiprow{display:flex;flex-wrap:wrap;gap:10px;margin:28px 0}
     .chip{border:1px solid #24304a;padding:8px 12px;border-radius:999px;font-size:13px;opacity:.9}
     .ctarow{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+    .halo{position:absolute;inset:-20% -10% auto -10%;height:520px;background:radial-gradient(600px 260px at 20% 20%, rgba(47,140,255,.25), transparent 60%),radial-gradient(600px 260px at 70% 0%, rgba(155,92,255,.18), transparent 60%),radial-gradient(600px 260px at 60% 70%, rgba(25,195,125,.12), transparent 60%)}
 
-    .halo{position:absolute;inset:-20% -10% auto -10%;height:520px;background:radial-gradient(600px 260px at 20% 20%, rgba(47,140,255,.25), transparent 60%),
-                            radial-gradient(600px 260px at 70% 0%, rgba(155,92,255,.18), transparent 60%),
-                            radial-gradient(600px 260px at 60% 70%, rgba(25,195,125,.12), transparent 60%)}
+    section{padding:56px 0}
+    .section-title{font:700 26px/1.1 "Space Grotesk";margin:0 0 18px}
+    .section-sub{color:var(--muted);margin:0 0 24px;max-width:780px}
 
-    /* PANELS */
     .panel{background:var(--card);border:1px solid #1c2130;border-radius:var(--radius);box-shadow:var(--shadow)}
 
-    /* KPIs */
     .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:22px}
     .kpi{padding:18px;border-radius:14px;border:1px solid #233049;background:#0e1220}
     .kpi h3{margin:0;font:800 28px/1.1 "Space Grotesk",Inter}
@@ -61,18 +59,12 @@
     .spark::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 2px,transparent 2px 16px);transform:translateX(-100%);animation:slide 4s linear infinite}
     @keyframes slide{to{transform:translateX(100%)}}
 
-    /* CASES */
-    section{padding:56px 0}
-    .section-title{font:700 26px/1.1 "Space Grotesk";margin:0 0 18px}
-    .section-sub{color:var(--muted);margin:0 0 24px;max-width:760px}
-
     .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     .case{padding:18px}
     .case h4{margin:0 0 10px;font:700 18px/1.2 "Space Grotesk"}
     .case p{margin:0 0 10px;color:var(--muted)}
     .badge{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid #27324a;font-size:12px;margin-right:6px;color:#c8cee0}
 
-    /* FUNNEL MOCK */
     .funnel{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
     .chart{padding:18px}
     .bar{height:36px;border-radius:10px;margin:10px 0;position:relative;overflow:hidden;border:1px solid #2a3453;background:#0d1220}
@@ -80,40 +72,23 @@
     .bar label{position:absolute;left:12px;top:8px;font-size:12px;color:#cdd3e6}
     .bar .val{position:absolute;right:12px;top:8px;font-size:12px;color:#9fb3ff}
 
-    /* TECH STACK */
     .stack{display:flex;flex-wrap:wrap;gap:12px}
     .tool{padding:10px 14px;border:1px solid #24304a;border-radius:12px;background:#0f1320}
 
-    /* PARTNERS */
     .logos{display:flex;gap:24px;flex-wrap:wrap;align-items:center;opacity:.9}
-    .logo{height:32px;filter:grayscale(100%) contrast(1.1) brightness(.9)}
 
-    /* CTA FOOTER */
     footer{padding:56px 0;border-top:1px solid #1b2030;background:radial-gradient(600px 240px at 50% -40px, rgba(47,140,255,.18), transparent 60%)}
     .ctabox{display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px}
 
-    /* PRINT (PDF elegante) */
-    @media print{
-      header, .ctarow .btn.secondary { display:none !important; }
-      .hero{padding-top:24px}
-      .panel { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-      .kpi, .case, .chart { break-inside: avoid; }
-    }
-
-    /* Responsive */
-    @media (max-width:1000px){
-      .grid, .funnel{grid-template-columns:1fr}
-      .kpis{grid-template-columns:repeat(2,1fr)}
-      .case-grid{grid-template-columns:1fr}
-      .headline{font-size:38px}
-    }
+    @media print{ header,.ctarow .btn.secondary{display:none!important} .hero{padding-top:24px} .panel{-webkit-print-color-adjust:exact;print-color-adjust:exact} .kpi,.case,.chart{break-inside:avoid}}
+    @media (max-width:1000px){ .grid,.funnel{grid-template-columns:1fr} .kpis{grid-template-columns:repeat(2,1fr)} .case-grid{grid-template-columns:1fr} .headline{font-size:38px}}
   </style>
 </head>
 <body>
   <header>
     <div class="container">
       <nav>
-        <div class="brand"><span class="dot"></span> Luis Díaz — Growth & RevOps</div>
+        <div class="brand"><span class="dot"></span> Luis Díaz — Growth • RevOps • Automation</div>
         <div class="navlinks">
           <a href="#about">Sobre mí</a>
           <a href="#cases">Casos</a>
@@ -133,61 +108,45 @@
     <div class="halo"></div>
     <div class="container grid">
       <div>
-        <h1 class="headline">ABM Outbound + RevOps que <span style="background:var(--accent);-webkit-background-clip:text;background-clip:text;color:transparent">convierte</span> y agenda C‑level</h1>
-        <p class="sub">Lidero growth B2B enfocado en <strong>campañas outbound</strong> y <strong>automatización RevOps</strong> sobre Google Sheets + Apps Script, con storytelling y rigor de datos. En GLÉNIX (partners: Ensitech, Julius 2 Grow) construí máquinas de prospección que pasaron de prueba a <em>pipeline</em> serio en semanas.</p>
+        <h1 class="headline">Opero Growth & RevOps que <span style="background:var(--accent);-webkit-background-clip:text;background-clip:text;color:transparent">convierte</span>: conversaciones → reuniones → negocio</h1>
+        <p class="sub">Construyo y optimizo motores de prospección B2B con **ABM outbound**, automatización en **Google Apps Script**, dashboards accionables y liderazgo operativo. Gestioné hasta <strong>6 cuentas de LinkedIn</strong> en paralelo, dupliqué reuniones al asumir la operación y alcancé <strong>35 reuniones/semana</strong> como récord personal.</p>
         <div class="chiprow">
-          <span class="chip">Account‑Based Marketing</span>
-          <span class="chip">Sales Navigator Ops</span>
-          <span class="chip">Playbooks & Sequences</span>
-          <span class="chip">GAS Automations</span>
+          <span class="chip">ABM • Copy & Sequences</span>
+          <span class="chip">Apps Script Automations</span>
           <span class="chip">Dashboards KPI</span>
+          <span class="chip">Team Enablement</span>
+          <span class="chip">Calendar & Email Ops</span>
         </div>
         <div class="ctarow">
-          <a class="btn primary" href="#cases">Ver casos reales</a>
-          <a class="btn" href="#metrics">Impacto medible</a>
+          <a class="btn primary" href="#cases">Ver casos</a>
+          <a class="btn" href="#metrics">Impacto</a>
         </div>
         <div class="kpis">
-          <div class="kpi">
-            <h3 data-count="230">0</h3>
-            <p>reuniones agendadas (acumulado)
-            <div class="spark"></div>
-          </div>
-          <div class="kpi">
-            <h3 data-count="35">0</h3>
-            <p>récord semanal de reuniones
-            <div class="spark"></div>
-          </div>
-          <div class="kpi">
-            <h3 data-count="8900">0</h3>
-            <p>invitaciones enviadas con control de calidad
-            <div class="spark"></div>
-          </div>
-          <div class="kpi">
-            <h3 data-count="2">0</h3>
-            <p>× mejora tasa de conversión a meeting
-            <div class="spark"></div>
-          </div>
+          <div class="kpi"><h3 data-count="230">0</h3><p>reuniones agendadas (acumulado)<div class="spark"></div></div>
+          <div class="kpi"><h3 data-count="35">0</h3><p>récord semanal de reuniones<div class="spark"></div></div>
+          <div class="kpi"><h3 data-count="6">0</h3><p>cuentas de LinkedIn operadas en paralelo<div class="spark"></div></div>
+          <div class="kpi"><h3 data-count="2">0</h3><p>× mejora en conversión a meeting<div class="spark"></div></div>
         </div>
       </div>
       <div class="panel" style="padding:22px">
-        <h3 style="margin:0 0 6px;font:700 18px 'Space Grotesk'">Mockup — Dashboard de Growth</h3>
-        <p style="margin:0 0 16px;color:var(--muted)">Embudo animado, tasa de respuesta, MQL→SQL, y seguimiento automático.</p>
+        <h3 style="margin:0 0 6px;font:700 18px 'Space Grotesk'">Mockup — Arquitectura de Operación</h3>
+        <p class="sub" style="margin:0 0 12px">Fuente única de verdad en Sheets + automatizaciones + cadencias → de invitación a agenda, sin fricción.</p>
         <div class="funnel">
           <div class="chart">
-            <div class="bar"><span class="fill" data-w="92"></span><label>Target Accounts</label><span class="val">920</span></div>
-            <div class="bar"><span class="fill" data-w="68"></span><label>Contactados</label><span class="val">680</span></div>
-            <div class="bar"><span class="fill" data-w="34"></span><label>Respuestas</label><span class="val">340</span></div>
-            <div class="bar"><span class="fill" data-w="12"></span><label>SQL</label><span class="val">120</span></div>
+            <div class="bar"><span class="fill" data-w="92"></span><label>Target (filtros & boolean)</label><span class="val">920</span></div>
+            <div class="bar"><span class="fill" data-w="68"></span><label>Invites enviados (equipo)</label><span class="val">680</span></div>
+            <div class="bar"><span class="fill" data-w="34"></span><label>Conversaciones (Luis)</label><span class="val">340</span></div>
+            <div class="bar"><span class="fill" data-w="12"></span><label>Calendario (auto)</label><span class="val">120</span></div>
             <div class="bar"><span class="fill" data-w="3.8"></span><label>Reuniones</label><span class="val">38</span></div>
           </div>
           <div class="panel" style="padding:18px">
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-              <div class="tool">LL (Llamada): <strong>+42%</strong></div>
-              <div class="tool">Tiempo resp. prom.: <strong>6.3 h</strong></div>
-              <div class="tool">ME → LL: <strong>17%</strong></div>
-              <div class="tool">S → LL: <strong>26%</strong></div>
+              <div class="tool">Gestión multicuenta: <strong>5–6</strong></div>
+              <div class="tool">Tiempo resp. prom.: <strong>~6 h</strong></div>
+              <div class="tool">ME→LL: <strong>↑</strong> por cadencias</div>
+              <div class="tool">S→LL: <strong>↑</strong> por follow-ups</div>
             </div>
-            <p style="color:var(--muted);margin:14px 0 0;font-size:13px">Datos demo sobre estructura real de métricas usadas en GLÉNIX.</p>
+            <p style="color:var(--muted);margin:14px 0 0;font-size:13px">Roles diferenciados: sourcing/Invites (equipo) → Conversaciones & Agenda (Luis).</p>
           </div>
         </div>
       </div>
@@ -197,57 +156,56 @@
   <section id="about">
     <div class="container">
       <h2 class="section-title">Sobre mí</h2>
-      <p class="section-sub">Growth marketer con mentalidad de <em>product‑builder</em>. Diseño y opero motores de prospección outbound con enfoque ABM, consolidando datos en un <strong>CRM RevOps en Google Sheets + Apps Script</strong> que luce y funciona como SaaS (web app, triggers, reportes y guardas anti‑rotura). Trabajo de la mano con dirección para abrir puertas en cuentas enterprise y convertir interés en reuniones ejecutivas.</p>
+      <p class="section-sub">Operador‑estratega de growth con mentalidad de <em>product‑builder</em>. Me especializo en convertir conversaciones en reuniones ejecutivas a escala, mientras diseño **sistemas**: estatus, validaciones, hojas históricas, scripts y reportes que blindan la operación.</p>
       <div class="panel" style="padding:18px">
         <span class="badge">Storytelling de negocio</span>
-        <span class="badge">Secuencias multicanal</span>
-        <span class="badge">Validaciones y QA de listas</span>
-        <span class="badge">Automatización con GAS</span>
-        <span class="badge">Dashboards accionables</span>
+        <span class="badge">Cadencias & CTAs</span>
+        <span class="badge">Apps Script & WebApp</span>
+        <span class="badge">Dashboards & QA</span>
+        <span class="badge">Liderazgo & Enablement</span>
       </div>
     </div>
   </section>
 
   <section id="cases">
     <div class="container">
-      <h2 class="section-title">Casos de estudio — GLÉNIX</h2>
-      <p class="section-sub">Selección curada de iniciativas que pasaron de idea a impacto: outbound ABM, filtros avanzados en Sales Navigator, automatizaciones de CRM y dashboards con métricas que gestionan la operación.</p>
+      <h2 class="section-title">Casos de estudio (rol real y resultados)</h2>
+      <p class="section-sub">Sin marcas. Solo el trabajo: qué construí, cómo lo operé y qué impacto generó.</p>
       <div class="case-grid">
         <div class="panel case">
-          <h4>Outbound ABM para C‑level</h4>
-          <p>Construí secuencias y <em>playbooks</em> con tono ejecutivo, priorizando <strong>tomadores de decisión no‑CPG/retail</strong>. Validación semanal de hipótesis; calidad sobre volumen.</p>
-          <p><strong>Resultado:</strong> récord de <strong>35 reuniones</strong> en una semana y >230 acumuladas.</p>
-          <div class="badge">Account selection</div><div class="badge">Mensajes persuasivos</div><div class="badge">Calendly/Google Calendar</div>
+          <h4>Gestión de conversaciones y agenda (multicuenta)</h4>
+          <p>Operé <strong>5–6 cuentas de LinkedIn</strong> en paralelo para convertir respuestas en reuniones. Definí mensajes de apertura, <em>follow‑ups</em> y cierres con calendar link.</p>
+          <p><strong>Resultado:</strong> <strong>35 reuniones</strong> en mi mejor semana y <strong>230+ acumuladas</strong>. Toma de control de la operación → <strong>duplicación</strong> del volumen semanal y mantenimiento al mes.</p>
+          <div class="badge">Conversación→Cita</div><div class="badge">Cadencias ME→S→LL</div><div class="badge">Calendar Ops</div>
         </div>
         <div class="panel case">
-          <h4>RevOps CRM en Google Sheets</h4>
-          <p>Diseñé un CRM‑lite con <strong>estados estándar</strong>, registro automático de envíos y respuestas, reportes diarios/semanales, y web app (Apps Script + HTML Service) con <em>UI</em> moderna.</p>
-          <p><strong>Resultado:</strong> <strong>2×</strong> en tasa de conversión a reuniones y operación anti‑errores del equipo.</p>
-          <div class="badge">Triggers & WebApp</div><div class="badge">Guardas anti‑rotura</div><div class="badge">KPIs accionables</div>
+          <h4>RevOps en Sheets + Apps Script (estatus & reportes)</h4>
+          <p>Implementé <strong>sistema de estatus</strong> estandarizado; creé <strong>fórmulas</strong> para KPIs (mensajes enviados, tasas, horas de respuesta); desarrollé <strong>scripts</strong> para <em>weekly summary</em>, cambios de estatus, seguimientos y alertas.</p>
+          <p><strong>Resultado:</strong> <strong>2×</strong> en conversión a reunión, visibilidad granular y menos errores.</p>
+          <div class="badge">Triggers</div><div class="badge">Email HTML</div><div class="badge">Anti‑rotura</div>
         </div>
         <div class="panel case">
-          <h4>Filtros & QA en Sales Navigator</h4>
-          <p>Operé filtros temáticos (CRM+Consultoría, MarTech+Growth, etc.) y Boolean ops en versiones pequeñas para evitar 0 resultados; <strong>8,900 invitaciones</strong> con control de calidad.</p>
-          <p><strong>Resultado:</strong> mayor precisión, mejor tasa de aceptación y pipeline constante.</p>
-          <div class="badge">Boolean ops</div><div class="badge">Lista viva</div><div class="badge">QA continuo</div>
+          <h4>Automatizaciones clave (calendario, ownership & envíos)</h4>
+          <p>Sincronización de <strong>Calendar → Sheets</strong> (registro automático de reuniones), recordatorios por correo, búsqueda de <strong>ownership</strong> de leads entre hojas, y <strong>creación de reuniones</strong> directo desde Sheets via script.</p>
+          <p><strong>Resultado:</strong> menos tareas manuales, menos pérdidas de citas y seguimiento puntual.</p>
+          <div class="badge">Calendar API</div><div class="badge">Lookup global</div><div class="badge">One‑click meetings</div>
         </div>
         <div class="panel case">
-          <h4>Automatizaciones y reportes</h4>
-          <p>Scripts para capturar cambios de estatus (R, LL, RA, C, S, VS, SF), correos resumen por cuenta de origen y <strong>tiempos de respuesta</strong> por semana.</p>
-          <p><strong>Resultado:</strong> visibilidad granular del embudo y <em>coaching</em> del equipo con datos.</p>
-          <div class="badge">Apps Script</div><div class="badge">Email HTML</div><div class="badge">Análisis semanal</div>
+          <h4>Estrategia de filtros y base histórica</h4>
+          <p>Aporté a filtros temáticos y booleanos; creé una <strong>hoja histórica</strong> de filtros para evitar redundancias y acelerar validaciones.</p>
+          <p><strong>Resultado:</strong> mejor precisión y aprendizaje compuesto del equipo.</p>
+          <div class="badge">Boolean ops</div><div class="badge">Knowledge base</div><div class="badge">QA continuo</div>
         </div>
         <div class="panel case">
-          <h4>Playbook de Seguimientos</h4>
-          <p>Definí cadencias ME→S→LL con <strong>mensajería Sandler/storytelling</strong> y CTAs claros (Meet/agenda). A/B de aperturas/clicks y variaciones por industria.</p>
-          <p><strong>Resultado:</strong> incremento sostenido en <em>show rate</em> y reuniones re‑agendadas.</p>
-          <div class="badge">Copywriting B2B</div><div class="badge">A/B testing</div><div class="badge">Cadencias</div>
+          <h4>Liderazgo operativo & enablement</h4>
+          <p>El equipo me consultaba para dudas/estrategia. Implementé <strong>segunda cuenta de ciclo de vida</strong> y un <strong>self‑scheduling calendar</strong> para que los interesados agenden solos.</p>
+          <p><strong>Resultado:</strong> fluidez operativa y más tiempo en conversaciones de valor.</p>
+          <div class="badge">Team playbooks</div><div class="badge">Procesos escalables</div><div class="badge">Coaching</div>
         </div>
         <div class="panel case">
-          <h4>Partners & Verticales</h4>
-          <p>Ventas consultivas con <strong>Ensitech</strong> (IA/automatización/Dev) y <strong>Julius 2 Grow</strong> (SEO/paid/MarTech). Story‑narrativas distintas para cada <em>value prop</em>.</p>
-          <p><strong>Resultado:</strong> acceso a cuentas enterprise y conversaciones de alto valor.</p>
-          <div class="badge">IA & MarTech</div><div class="badge">Consultative selling</div><div class="badge">Narrativas por vertical</div>
+          <h4>Prospección con Sales Navigator (fase inicial)</h4>
+          <p>Configuré y probé filtros; luego el sourcing/Invites quedó en 3 integrantes del equipo. Ese entendimiento del topo del embudo me permitió optimizar mi etapa de conversación→agenda.</p>
+          <div class="badge">Account selection</div><div class="badge">Pasamanos eficiente</div>
         </div>
       </div>
     </div>
@@ -256,14 +214,14 @@
   <section id="metrics">
     <div class="container">
       <h2 class="section-title">Impacto medible</h2>
-      <p class="section-sub">Métricas reales de operación y resultados conseguidos en GLÉNIX.</p>
+      <p class="section-sub">Métricas de operación y producto interno que impulsaron el pipeline.</p>
       <div class="panel" style="padding:18px">
         <ul style="margin:0;padding-left:18px;line-height:1.9">
-          <li><strong>230+ reuniones</strong> agendadas totales; <strong>35</strong> en la mejor semana.</li>
-          <li><strong>8,900</strong> invitaciones en LinkedIn con QA; listas temáticas de alta precisión.</li>
-          <li><strong>2×</strong> mejora en conversión a reuniones tras implementar CRM + cadencias.</li>
-          <li>Dashboards de <strong>R/LL/RA/C/S/VS/SF</strong>, tasa de respuesta y tiempos promedio.</li>
-          <li>Automatizaciones de correos resumen diarios/semanales por cuenta de origen.</li>
+          <li><strong>230+ reuniones</strong> agendadas; <strong>35</strong> en la mejor semana.</li>
+          <li><strong>6</strong> cuentas de LinkedIn operadas en paralelo.</li>
+          <li><strong>2×</strong> mejora en conversión tras estatus estandarizados + cadencias + scripts.</li>
+          <li>KPIs de respuesta por hora del día, % enviados, tasas por etapa y reportes semanales automáticos.</li>
+          <li>Histórico de filtros para acelerar validaciones y evitar duplicidad.</li>
         </ul>
       </div>
     </div>
@@ -272,38 +230,21 @@
   <section id="stack">
     <div class="container">
       <h2 class="section-title">Tech Stack</h2>
-      <p class="section-sub">Opero herramientas de prospección, automatización y análisis para escalar outbound con control.</p>
+      <p class="section-sub">Herramientas de prospección, automatización y análisis con las que opero a velocidad.</p>
       <div class="panel" style="padding:18px">
         <div class="stack">
           <div class="tool">LinkedIn Sales Navigator</div>
           <div class="tool">Google Sheets + Apps Script</div>
           <div class="tool">HTML Service (WebApp)</div>
           <div class="tool">HubSpot (lite ops)</div>
-          <div class="tool">Apollo / Instantly</div>
           <div class="tool">Zapier / Make</div>
+          <div class="tool">Calendar & Gmail APIs</div>
           <div class="tool">ChatGPT</div>
           <div class="tool">Looker Studio</div>
         </div>
       </div>
-
       <div style="height:14px"></div>
-      <h3 class="section-title" style="font-size:22px">Partners & marcas / verticales</h3>
-      <div class="panel" style="padding:18px">
-        <div class="logos">
-          <img class="logo" alt="Ensitech" src="https://dummyimage.com/140x32/2a2f40/ffffff&text=Ensitech"/>
-          <img class="logo" alt="Julius 2 Grow" src="https://dummyimage.com/180x32/2a2f40/ffffff&text=Julius+2+Grow"/>
-          <img class="logo" alt="AI" src="https://dummyimage.com/60x32/2a2f40/ffffff&text=AI"/>
-          <img class="logo" alt="MarTech" src="https://dummyimage.com/100x32/2a2f40/ffffff&text=MarTech"/>
-          <img class="logo" alt="Digital Growth" src="https://dummyimage.com/160x32/2a2f40/ffffff&text=Digital+Growth"/>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="ui-mockups">
-    <div class="container">
-      <h2 class="section-title">Mockups — Dashboard & CRM</h2>
-      <p class="section-sub">Componentes visuales simulados en HTML/CSS que muestran dominio técnico y de experiencia de usuario.</p>
+      <h3 class="section-title" style="font-size:22px">Mockups de UI (operación)</h3>
       <div class="grid">
         <div class="panel" style="padding:18px">
           <h4 style="margin:0 0 10px;font:700 18px 'Space Grotesk'">Kanban Pipeline</h4>
@@ -329,21 +270,21 @@
               </thead>
               <tbody>
                 <tr>
-                  <td style="padding:10px;border-bottom:1px solid #232a3e">Enterprise X</td>
+                  <td style="padding:10px;border-bottom:1px solid #232a3e">Empresa A</td>
                   <td style="padding:10px;border-bottom:1px solid #232a3e">VP IT</td>
                   <td style="padding:10px;border-bottom:1px solid #232a3e">A. Martínez</td>
                   <td style="padding:10px;border-bottom:1px solid #232a3e"><span class="badge">LL</span></td>
                   <td style="padding:10px;border-bottom:1px solid #232a3e">Ayer</td>
                 </tr>
                 <tr>
-                  <td style="padding:10px;border-bottom:1px solid #232a3e">Grupo Y</td>
+                  <td style="padding:10px;border-bottom:1px solid #232a3e">Grupo B</td>
                   <td style="padding:10px;border-bottom:1px solid #232a3e">CIO</td>
                   <td style="padding:10px;border-bottom:1px solid #232a3e">M. Gómez</td>
                   <td style="padding:10px;border-bottom:1px solid #232a3e"><span class="badge">S</span></td>
                   <td style="padding:10px;border-bottom:1px solid #232a3e">Hoy</td>
                 </tr>
                 <tr>
-                  <td style="padding:10px;border-bottom:1px solid #232a3e">Retail Z</td>
+                  <td style="padding:10px;border-bottom:1px solid #232a3e">Retail C</td>
                   <td style="padding:10px;border-bottom:1px solid #232a3e">CTO</td>
                   <td style="padding:10px;border-bottom:1px solid #232a3e">L. Torres</td>
                   <td style="padding:10px;border-bottom:1px solid #232a3e"><span class="badge">ME</span></td>
@@ -361,7 +302,7 @@
     <div class="container">
       <div class="ctabox">
         <h2 class="section-title" style="margin:0">¿Construimos tu máquina de growth?</h2>
-        <p class="section-sub" style="margin:0">Disponible para roles de Growth/RevOps con enfoque B2B (LATAM/Remote).<br>Portafolio PDF listo para compartir.</p>
+        <p class="section-sub" style="margin:0">Disponible para roles de Growth/RevOps B2B (LATAM/Remote). Portafolio PDF listo para compartir.</p>
         <div class="ctarow">
           <a class="btn primary" href="mailto:luis.growth.revops@proton.me">Contáctame</a>
           <a class="btn" href="https://www.linkedin.com/in/" target="_blank" rel="noreferrer">LinkedIn</a>
@@ -377,7 +318,7 @@
       a.addEventListener('click',e=>{const id=a.getAttribute('href'); if(id.length>1){e.preventDefault();document.querySelector(id).scrollIntoView({behavior:'smooth'});}})
     })
 
-    // Animate KPI counters
+    // KPI counters
     const clamp=(n,min,max)=>Math.max(min,Math.min(max,n));
     const inView=(el)=>{const r=el.getBoundingClientRect();return r.top<window.innerHeight*0.9}
     const runCounters=()=>{
@@ -391,18 +332,16 @@
     }
     window.addEventListener('scroll',runCounters); window.addEventListener('load',runCounters);
 
-    // Animate funnel bars
+    // Funnel bars
     const bars=[...document.querySelectorAll('.bar .fill')];
-    const animateBars=()=>{
-      bars.forEach(b=>{ if(b.dataset.done) return; const parent=b.closest('.bar'); if(!inView(parent)) return; b.style.width=b.dataset.w+'%'; b.style.transition='width 1200ms cubic-bezier(.2,.8,.2,1)'; b.dataset.done=true; });
-    }
+    const animateBars=()=>{ bars.forEach(b=>{ if(b.dataset.done) return; const parent=b.closest('.bar'); if(!inView(parent)) return; b.style.width=b.dataset.w+'%'; b.style.transition='width 1200ms cubic-bezier(.2,.8,.2,1)'; b.dataset.done=true; }); }
     window.addEventListener('scroll',animateBars); window.addEventListener('load',animateBars);
 
     // Print to PDF
-    document.getElementById('btnPrint').addEventListener('click', (e)=>{ e.preventDefault(); window.print() })
+    document.getElementById('btnPrint').addEventListener('click',(e)=>{ e.preventDefault(); window.print() })
 
-    // Scroll top CTA
-    document.getElementById('btnScrollTop').addEventListener('click', (e)=>{ e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); })
+    // Scroll top
+    document.getElementById('btnScrollTop').addEventListener('click',(e)=>{ e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); })
   </script>
 </body>
 </html>
