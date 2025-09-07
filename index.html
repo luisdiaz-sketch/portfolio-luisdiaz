@@ -4,27 +4,405 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Luis Díaz — Growth & RevOps Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Portafolio de marketing y growth B2B de Luis Díaz: ABM outbound, RevOps, automatización con Google Apps Script, dashboards y resultados medibles." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0b0c10;           /* negro mate */
+      --card: #111319;
+      --text: #E6E8EC;
+      --muted: #A6ACB9;
+      --electric: #2F8CFF;     /* azul eléctrico */
+      --emerald: #19C37D;      /* verde esmeralda */
+      --violet: #9B5CFF;       /* violeta neón */
+      --accent: linear-gradient(90deg, var(--electric), var(--violet));
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+      --radius: 16px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1120px;margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;z-index:50;background:rgba(11,12,16,.6);backdrop-filter:saturate(150%) blur(14px);border-bottom:1px solid #1c1f2a}
+    nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.5px}
+    .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--electric);box-shadow:0 0 16px var(--electric)}
+    .navlinks{display:flex;gap:22px}
+    .navlinks a{opacity:.85}
+    .navlinks a:hover{opacity:1}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:999px;font-weight:600;border:1px solid #222737;background:#0e1016}
+    .btn.primary{background:var(--accent);color:#0d1220;border:none}
+    .btn.ghost{border-color:#2a3042}
+
+    /* HERO */
+    .hero{position:relative;padding:96px 0 40px;overflow:hidden}
+    .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:36px}
+    .headline{font-family:"Space Grotesk",Inter,sans-serif;font-size:48px;line-height:1.06;margin:0 0 16px;font-weight:800;letter-spacing:.4px}
+    .sub{color:var(--muted);max-width:680px;font-size:18px}
+    .chiprow{display:flex;flex-wrap:wrap;gap:10px;margin:28px 0}
+    .chip{border:1px solid #24304a;padding:8px 12px;border-radius:999px;font-size:13px;opacity:.9}
+    .ctarow{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+
+    .halo{position:absolute;inset:-20% -10% auto -10%;height:520px;background:radial-gradient(600px 260px at 20% 20%, rgba(47,140,255,.25), transparent 60%),
+                            radial-gradient(600px 260px at 70% 0%, rgba(155,92,255,.18), transparent 60%),
+                            radial-gradient(600px 260px at 60% 70%, rgba(25,195,125,.12), transparent 60%)}
+
+    /* PANELS */
+    .panel{background:var(--card);border:1px solid #1c2130;border-radius:var(--radius);box-shadow:var(--shadow)}
+
+    /* KPIs */
+    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:22px}
+    .kpi{padding:18px;border-radius:14px;border:1px solid #233049;background:#0e1220}
+    .kpi h3{margin:0;font:800 28px/1.1 "Space Grotesk",Inter}
+    .kpi p{margin:6px 0 0;color:var(--muted);font-size:13px}
+    .kpi .spark{height:40px;margin-top:10px;background:linear-gradient(90deg,rgba(47,140,255,.15),rgba(155,92,255,.12));border-radius:10px;position:relative;overflow:hidden}
+    .spark::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 2px,transparent 2px 16px);transform:translateX(-100%);animation:slide 4s linear infinite}
+    @keyframes slide{to{transform:translateX(100%)}}
+
+    /* CASES */
+    section{padding:56px 0}
+    .section-title{font:700 26px/1.1 "Space Grotesk";margin:0 0 18px}
+    .section-sub{color:var(--muted);margin:0 0 24px;max-width:760px}
+
+    .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .case{padding:18px}
+    .case h4{margin:0 0 10px;font:700 18px/1.2 "Space Grotesk"}
+    .case p{margin:0 0 10px;color:var(--muted)}
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid #27324a;font-size:12px;margin-right:6px;color:#c8cee0}
+
+    /* FUNNEL MOCK */
+    .funnel{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
+    .chart{padding:18px}
+    .bar{height:36px;border-radius:10px;margin:10px 0;position:relative;overflow:hidden;border:1px solid #2a3453;background:#0d1220}
+    .bar .fill{height:100%;background:var(--accent);width:0;border-radius:inherit;box-shadow:0 0 22px rgba(47,140,255,.35)}
+    .bar label{position:absolute;left:12px;top:8px;font-size:12px;color:#cdd3e6}
+    .bar .val{position:absolute;right:12px;top:8px;font-size:12px;color:#9fb3ff}
+
+    /* TECH STACK */
+    .stack{display:flex;flex-wrap:wrap;gap:12px}
+    .tool{padding:10px 14px;border:1px solid #24304a;border-radius:12px;background:#0f1320}
+
+    /* PARTNERS */
+    .logos{display:flex;gap:24px;flex-wrap:wrap;align-items:center;opacity:.9}
+    .logo{height:32px;filter:grayscale(100%) contrast(1.1) brightness(.9)}
+
+    /* CTA FOOTER */
+    footer{padding:56px 0;border-top:1px solid #1b2030;background:radial-gradient(600px 240px at 50% -40px, rgba(47,140,255,.18), transparent 60%)}
+    .ctabox{display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px}
+
+    /* PRINT (PDF elegante) */
+    @media print{
+      header, .ctarow .btn.secondary { display:none !important; }
+      .hero{padding-top:24px}
+      .panel { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .kpi, .case, .chart { break-inside: avoid; }
+    }
+
+    /* Responsive */
+    @media (max-width:1000px){
+      .grid, .funnel{grid-template-columns:1fr}
+      .kpis{grid-template-columns:repeat(2,1fr)}
+      .case-grid{grid-template-columns:1fr}
+      .headline{font-size:38px}
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>Luis Díaz — Growth & RevOps Portfolio</h1>
+    <div class="container">
+      <nav>
+        <div class="brand"><span class="dot"></span> Luis Díaz — Growth & RevOps</div>
+        <div class="navlinks">
+          <a href="#about">Sobre mí</a>
+          <a href="#cases">Casos</a>
+          <a href="#metrics">Impacto</a>
+          <a href="#stack">Tech</a>
+          <a href="#contact">Contacto</a>
+        </div>
+        <div class="actions">
+          <a class="btn ghost" href="#" id="btnPrint" title="Descargar PDF">PDF</a>
+          <a class="btn primary" href="#contact">Hablemos</a>
+        </div>
+      </nav>
+    </div>
   </header>
-  <main>
-    <section>
-      <h2>Hero Section</h2>
-      <p>ABM Outbound + RevOps que convierte y agenda C‑level.</p>
-    </section>
-    <section>
-      <h2>About Me</h2>
-      <p>Growth marketer con mentalidad de product‑builder...</p>
-    </section>
-    <section>
-      <h2>Impact Metrics</h2>
-      <div class="kpi" data-count="230">0</div>
-      <div class="kpi" data-count="35">0</div>
-    </section>
-  </main>
-  <script src="script.js"></script>
+
+  <section class="hero">
+    <div class="halo"></div>
+    <div class="container grid">
+      <div>
+        <h1 class="headline">ABM Outbound + RevOps que <span style="background:var(--accent);-webkit-background-clip:text;background-clip:text;color:transparent">convierte</span> y agenda C‑level</h1>
+        <p class="sub">Lidero growth B2B enfocado en <strong>campañas outbound</strong> y <strong>automatización RevOps</strong> sobre Google Sheets + Apps Script, con storytelling y rigor de datos. En GLÉNIX (partners: Ensitech, Julius 2 Grow) construí máquinas de prospección que pasaron de prueba a <em>pipeline</em> serio en semanas.</p>
+        <div class="chiprow">
+          <span class="chip">Account‑Based Marketing</span>
+          <span class="chip">Sales Navigator Ops</span>
+          <span class="chip">Playbooks & Sequences</span>
+          <span class="chip">GAS Automations</span>
+          <span class="chip">Dashboards KPI</span>
+        </div>
+        <div class="ctarow">
+          <a class="btn primary" href="#cases">Ver casos reales</a>
+          <a class="btn" href="#metrics">Impacto medible</a>
+        </div>
+        <div class="kpis">
+          <div class="kpi">
+            <h3 data-count="230">0</h3>
+            <p>reuniones agendadas (acumulado)
+            <div class="spark"></div>
+          </div>
+          <div class="kpi">
+            <h3 data-count="35">0</h3>
+            <p>récord semanal de reuniones
+            <div class="spark"></div>
+          </div>
+          <div class="kpi">
+            <h3 data-count="8900">0</h3>
+            <p>invitaciones enviadas con control de calidad
+            <div class="spark"></div>
+          </div>
+          <div class="kpi">
+            <h3 data-count="2">0</h3>
+            <p>× mejora tasa de conversión a meeting
+            <div class="spark"></div>
+          </div>
+        </div>
+      </div>
+      <div class="panel" style="padding:22px">
+        <h3 style="margin:0 0 6px;font:700 18px 'Space Grotesk'">Mockup — Dashboard de Growth</h3>
+        <p style="margin:0 0 16px;color:var(--muted)">Embudo animado, tasa de respuesta, MQL→SQL, y seguimiento automático.</p>
+        <div class="funnel">
+          <div class="chart">
+            <div class="bar"><span class="fill" data-w="92"></span><label>Target Accounts</label><span class="val">920</span></div>
+            <div class="bar"><span class="fill" data-w="68"></span><label>Contactados</label><span class="val">680</span></div>
+            <div class="bar"><span class="fill" data-w="34"></span><label>Respuestas</label><span class="val">340</span></div>
+            <div class="bar"><span class="fill" data-w="12"></span><label>SQL</label><span class="val">120</span></div>
+            <div class="bar"><span class="fill" data-w="3.8"></span><label>Reuniones</label><span class="val">38</span></div>
+          </div>
+          <div class="panel" style="padding:18px">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+              <div class="tool">LL (Llamada): <strong>+42%</strong></div>
+              <div class="tool">Tiempo resp. prom.: <strong>6.3 h</strong></div>
+              <div class="tool">ME → LL: <strong>17%</strong></div>
+              <div class="tool">S → LL: <strong>26%</strong></div>
+            </div>
+            <p style="color:var(--muted);margin:14px 0 0;font-size:13px">Datos demo sobre estructura real de métricas usadas en GLÉNIX.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">Sobre mí</h2>
+      <p class="section-sub">Growth marketer con mentalidad de <em>product‑builder</em>. Diseño y opero motores de prospección outbound con enfoque ABM, consolidando datos en un <strong>CRM RevOps en Google Sheets + Apps Script</strong> que luce y funciona como SaaS (web app, triggers, reportes y guardas anti‑rotura). Trabajo de la mano con dirección para abrir puertas en cuentas enterprise y convertir interés en reuniones ejecutivas.</p>
+      <div class="panel" style="padding:18px">
+        <span class="badge">Storytelling de negocio</span>
+        <span class="badge">Secuencias multicanal</span>
+        <span class="badge">Validaciones y QA de listas</span>
+        <span class="badge">Automatización con GAS</span>
+        <span class="badge">Dashboards accionables</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="cases">
+    <div class="container">
+      <h2 class="section-title">Casos de estudio — GLÉNIX</h2>
+      <p class="section-sub">Selección curada de iniciativas que pasaron de idea a impacto: outbound ABM, filtros avanzados en Sales Navigator, automatizaciones de CRM y dashboards con métricas que gestionan la operación.</p>
+      <div class="case-grid">
+        <div class="panel case">
+          <h4>Outbound ABM para C‑level</h4>
+          <p>Construí secuencias y <em>playbooks</em> con tono ejecutivo, priorizando <strong>tomadores de decisión no‑CPG/retail</strong>. Validación semanal de hipótesis; calidad sobre volumen.</p>
+          <p><strong>Resultado:</strong> récord de <strong>35 reuniones</strong> en una semana y >230 acumuladas.</p>
+          <div class="badge">Account selection</div><div class="badge">Mensajes persuasivos</div><div class="badge">Calendly/Google Calendar</div>
+        </div>
+        <div class="panel case">
+          <h4>RevOps CRM en Google Sheets</h4>
+          <p>Diseñé un CRM‑lite con <strong>estados estándar</strong>, registro automático de envíos y respuestas, reportes diarios/semanales, y web app (Apps Script + HTML Service) con <em>UI</em> moderna.</p>
+          <p><strong>Resultado:</strong> <strong>2×</strong> en tasa de conversión a reuniones y operación anti‑errores del equipo.</p>
+          <div class="badge">Triggers & WebApp</div><div class="badge">Guardas anti‑rotura</div><div class="badge">KPIs accionables</div>
+        </div>
+        <div class="panel case">
+          <h4>Filtros & QA en Sales Navigator</h4>
+          <p>Operé filtros temáticos (CRM+Consultoría, MarTech+Growth, etc.) y Boolean ops en versiones pequeñas para evitar 0 resultados; <strong>8,900 invitaciones</strong> con control de calidad.</p>
+          <p><strong>Resultado:</strong> mayor precisión, mejor tasa de aceptación y pipeline constante.</p>
+          <div class="badge">Boolean ops</div><div class="badge">Lista viva</div><div class="badge">QA continuo</div>
+        </div>
+        <div class="panel case">
+          <h4>Automatizaciones y reportes</h4>
+          <p>Scripts para capturar cambios de estatus (R, LL, RA, C, S, VS, SF), correos resumen por cuenta de origen y <strong>tiempos de respuesta</strong> por semana.</p>
+          <p><strong>Resultado:</strong> visibilidad granular del embudo y <em>coaching</em> del equipo con datos.</p>
+          <div class="badge">Apps Script</div><div class="badge">Email HTML</div><div class="badge">Análisis semanal</div>
+        </div>
+        <div class="panel case">
+          <h4>Playbook de Seguimientos</h4>
+          <p>Definí cadencias ME→S→LL con <strong>mensajería Sandler/storytelling</strong> y CTAs claros (Meet/agenda). A/B de aperturas/clicks y variaciones por industria.</p>
+          <p><strong>Resultado:</strong> incremento sostenido en <em>show rate</em> y reuniones re‑agendadas.</p>
+          <div class="badge">Copywriting B2B</div><div class="badge">A/B testing</div><div class="badge">Cadencias</div>
+        </div>
+        <div class="panel case">
+          <h4>Partners & Verticales</h4>
+          <p>Ventas consultivas con <strong>Ensitech</strong> (IA/automatización/Dev) y <strong>Julius 2 Grow</strong> (SEO/paid/MarTech). Story‑narrativas distintas para cada <em>value prop</em>.</p>
+          <p><strong>Resultado:</strong> acceso a cuentas enterprise y conversaciones de alto valor.</p>
+          <div class="badge">IA & MarTech</div><div class="badge">Consultative selling</div><div class="badge">Narrativas por vertical</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="metrics">
+    <div class="container">
+      <h2 class="section-title">Impacto medible</h2>
+      <p class="section-sub">Métricas reales de operación y resultados conseguidos en GLÉNIX.</p>
+      <div class="panel" style="padding:18px">
+        <ul style="margin:0;padding-left:18px;line-height:1.9">
+          <li><strong>230+ reuniones</strong> agendadas totales; <strong>35</strong> en la mejor semana.</li>
+          <li><strong>8,900</strong> invitaciones en LinkedIn con QA; listas temáticas de alta precisión.</li>
+          <li><strong>2×</strong> mejora en conversión a reuniones tras implementar CRM + cadencias.</li>
+          <li>Dashboards de <strong>R/LL/RA/C/S/VS/SF</strong>, tasa de respuesta y tiempos promedio.</li>
+          <li>Automatizaciones de correos resumen diarios/semanales por cuenta de origen.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="container">
+      <h2 class="section-title">Tech Stack</h2>
+      <p class="section-sub">Opero herramientas de prospección, automatización y análisis para escalar outbound con control.</p>
+      <div class="panel" style="padding:18px">
+        <div class="stack">
+          <div class="tool">LinkedIn Sales Navigator</div>
+          <div class="tool">Google Sheets + Apps Script</div>
+          <div class="tool">HTML Service (WebApp)</div>
+          <div class="tool">HubSpot (lite ops)</div>
+          <div class="tool">Apollo / Instantly</div>
+          <div class="tool">Zapier / Make</div>
+          <div class="tool">ChatGPT</div>
+          <div class="tool">Looker Studio</div>
+        </div>
+      </div>
+
+      <div style="height:14px"></div>
+      <h3 class="section-title" style="font-size:22px">Partners & marcas / verticales</h3>
+      <div class="panel" style="padding:18px">
+        <div class="logos">
+          <img class="logo" alt="Ensitech" src="https://dummyimage.com/140x32/2a2f40/ffffff&text=Ensitech"/>
+          <img class="logo" alt="Julius 2 Grow" src="https://dummyimage.com/180x32/2a2f40/ffffff&text=Julius+2+Grow"/>
+          <img class="logo" alt="AI" src="https://dummyimage.com/60x32/2a2f40/ffffff&text=AI"/>
+          <img class="logo" alt="MarTech" src="https://dummyimage.com/100x32/2a2f40/ffffff&text=MarTech"/>
+          <img class="logo" alt="Digital Growth" src="https://dummyimage.com/160x32/2a2f40/ffffff&text=Digital+Growth"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ui-mockups">
+    <div class="container">
+      <h2 class="section-title">Mockups — Dashboard & CRM</h2>
+      <p class="section-sub">Componentes visuales simulados en HTML/CSS que muestran dominio técnico y de experiencia de usuario.</p>
+      <div class="grid">
+        <div class="panel" style="padding:18px">
+          <h4 style="margin:0 0 10px;font:700 18px 'Space Grotesk'">Kanban Pipeline</h4>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">
+            <div class="tool" style="min-height:130px">ME<br><small>Mensaje Enviado</small></div>
+            <div class="tool" style="min-height:130px">S<br><small>Seguimiento</small></div>
+            <div class="tool" style="min-height:130px">LL<br><small>Llamada</small></div>
+            <div class="tool" style="min-height:130px">C<br><small>Cerrado</small></div>
+          </div>
+        </div>
+        <div class="panel" style="padding:18px">
+          <h4 style="margin:0 0 10px;font:700 18px 'Space Grotesk'">Tabla viva de contactos</h4>
+          <div style="border:1px solid #2a3042;border-radius:12px;overflow:hidden">
+            <table style="width:100%;border-collapse:collapse;font-size:14px">
+              <thead style="background:#0f1423">
+                <tr>
+                  <th style="text-align:left;padding:10px;border-bottom:1px solid #2a3042">Empresa</th>
+                  <th style="text-align:left;padding:10px;border-bottom:1px solid #2a3042">Cargo</th>
+                  <th style="text-align:left;padding:10px;border-bottom:1px solid #2a3042">Nombre</th>
+                  <th style="text-align:left;padding:10px;border-bottom:1px solid #2a3042">Estatus</th>
+                  <th style="text-align:left;padding:10px;border-bottom:1px solid #2a3042">Último contacto</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding:10px;border-bottom:1px solid #232a3e">Enterprise X</td>
+                  <td style="padding:10px;border-bottom:1px solid #232a3e">VP IT</td>
+                  <td style="padding:10px;border-bottom:1px solid #232a3e">A. Martínez</td>
+                  <td style="padding:10px;border-bottom:1px solid #232a3e"><span class="badge">LL</span></td>
+                  <td style="padding:10px;border-bottom:1px solid #232a3e">Ayer</td>
+                </tr>
+                <tr>
+                  <td style="padding:10px;border-bottom:1px solid #232a3e">Grupo Y</td>
+                  <td style="padding:10px;border-bottom:1px solid #232a3e">CIO</td>
+                  <td style="padding:10px;border-bottom:1px solid #232a3e">M. Gómez</td>
+                  <td style="padding:10px;border-bottom:1px solid #232a3e"><span class="badge">S</span></td>
+                  <td style="padding:10px;border-bottom:1px solid #232a3e">Hoy</td>
+                </tr>
+                <tr>
+                  <td style="padding:10px;border-bottom:1px solid #232a3e">Retail Z</td>
+                  <td style="padding:10px;border-bottom:1px solid #232a3e">CTO</td>
+                  <td style="padding:10px;border-bottom:1px solid #232a3e">L. Torres</td>
+                  <td style="padding:10px;border-bottom:1px solid #232a3e"><span class="badge">ME</span></td>
+                  <td style="padding:10px;border-bottom:1px solid #232a3e">—</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="container">
+      <div class="ctabox">
+        <h2 class="section-title" style="margin:0">¿Construimos tu máquina de growth?</h2>
+        <p class="section-sub" style="margin:0">Disponible para roles de Growth/RevOps con enfoque B2B (LATAM/Remote).<br>Portafolio PDF listo para compartir.</p>
+        <div class="ctarow">
+          <a class="btn primary" href="mailto:luis.growth.revops@proton.me">Contáctame</a>
+          <a class="btn" href="https://www.linkedin.com/in/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn secondary" id="btnScrollTop" href="#">Volver arriba</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll for internal anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{const id=a.getAttribute('href'); if(id.length>1){e.preventDefault();document.querySelector(id).scrollIntoView({behavior:'smooth'});}})
+    })
+
+    // Animate KPI counters
+    const clamp=(n,min,max)=>Math.max(min,Math.min(max,n));
+    const inView=(el)=>{const r=el.getBoundingClientRect();return r.top<window.innerHeight*0.9}
+    const runCounters=()=>{
+      document.querySelectorAll('.kpi h3').forEach(h=>{
+        if(h.dataset.done) return;
+        if(!inView(h)) return;
+        const target=+h.dataset.count; let cur=0; const dur=1100; const t0=performance.now();
+        const step=(t)=>{const p=clamp((t-t0)/dur,0,1); cur=Math.floor(target*(0.15+0.85*(p*p))); h.textContent=cur.toLocaleString('es-MX'); if(p<1) requestAnimationFrame(step); else h.dataset.done=true}
+        requestAnimationFrame(step);
+      })
+    }
+    window.addEventListener('scroll',runCounters); window.addEventListener('load',runCounters);
+
+    // Animate funnel bars
+    const bars=[...document.querySelectorAll('.bar .fill')];
+    const animateBars=()=>{
+      bars.forEach(b=>{ if(b.dataset.done) return; const parent=b.closest('.bar'); if(!inView(parent)) return; b.style.width=b.dataset.w+'%'; b.style.transition='width 1200ms cubic-bezier(.2,.8,.2,1)'; b.dataset.done=true; });
+    }
+    window.addEventListener('scroll',animateBars); window.addEventListener('load',animateBars);
+
+    // Print to PDF
+    document.getElementById('btnPrint').addEventListener('click', (e)=>{ e.preventDefault(); window.print() })
+
+    // Scroll top CTA
+    document.getElementById('btnScrollTop').addEventListener('click', (e)=>{ e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); })
+  </script>
 </body>
 </html>
