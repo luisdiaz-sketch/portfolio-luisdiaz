@@ -1,0 +1,18 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #0b0c10;
+  color: #E6E8EC;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background: #111319;
+  padding: 20px;
+  text-align: center;
+}
+h1, h2 { color: #2F8CFF; }
+.kpi {
+  font-size: 24px;
+  margin: 10px 0;
+  color: #19C37D;
+}
