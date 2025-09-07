@@ -3,194 +3,291 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Wireframe — Portafolio Luis Díaz</title>
+  <title>Luis Díaz — Growth, RevOps & Automation</title>
+  <meta name="description" content="Portafolio showroom de Luis Díaz: ABM outbound, RevOps, automatizaciones con Apps Script, dashboards, casos B2B y resultados medibles." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#0c0d12; --ink:#e8eaf0; --muted:#aab0bf; --line:#1f2434; --active:#2F8CFF;
-      --gap:16px; --radius:16px;
+    :root{ /* Paleta tech */
+      --bg:#0b0c10; --ink:#E6E8EC; --muted:#A6ACB9; --line:#1c2130;
+      --electric:#2F8CFF; --emerald:#19C37D; --violet:#9B5CFF;
+      --accent:linear-gradient(90deg, var(--electric), var(--violet));
+      --card:#10121a; --card2:#0f1320; --radius:16px; --shadow:0 14px 40px rgba(0,0,0,.35);
+      --gap:18px;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,Arial,sans-serif}
+    html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
     .container{max-width:1200px;margin:0 auto;padding:0 20px}
-    header{position:sticky;top:0;background:rgba(12,13,18,.7);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);z-index:50}
+    header{position:sticky;top:0;z-index:50;background:rgba(11,12,16,.6);backdrop-filter:saturate(150%) blur(14px);border-bottom:1px solid var(--line)}
     nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-    .navlinks{display:flex;gap:20px}
-    a{color:inherit;text-decoration:none;opacity:.9}
-    a:hover{opacity:1}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.4px}
+    .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--electric);box-shadow:0 0 16px var(--electric)}
+    .navlinks{display:flex;gap:22px}
+    .navlinks a{opacity:.85}
+    .navlinks a:hover{opacity:1}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:999px;font-weight:600;border:1px solid #222737;background:#0e1016}
+    .btn.primary{background:var(--accent);color:#0d1220;border:none}
+    .btn.ghost{border-color:#2a3042}
 
-    /* Wireframe styles */
-    .wf-box{border:2px dashed var(--line);border-radius:var(--radius);padding:16px;background:rgba(255,255,255,.02)}
-    .wf-title{font-weight:800;margin:0 0 8px}
-    .wf-note{color:var(--muted);font-size:12px;margin:6px 0 0}
-
-    section{padding:56px 0}
+    /* Layout helpers */
+    section{padding:64px 0}
     .grid{display:grid;gap:var(--gap)}
-    .grid.cols-2{grid-template-columns:1.15fr .85fr}
-    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
-    .grid.cols-4{grid-template-columns:repeat(4,1fr)}
+    .col-2{grid-template-columns:1.15fr .85fr}
+    .col-3{grid-template-columns:repeat(3,1fr)}
+    .col-4{grid-template-columns:repeat(4,1fr)}
+    .panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .pad{padding:20px}
 
-    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap)}
-    .kpi{padding:18px;border:2px dashed var(--line);border-radius:14px;text-align:center}
-    .kpi h3{margin:0;font-size:28px}
+    .headline{font-family:"Space Grotesk";font-weight:800;font-size:48px;line-height:1.06;margin:0 0 12px}
+    .sub{color:var(--muted);max-width:760px}
+    .chiprow{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+    .chip{border:1px solid #24304a;padding:8px 12px;border-radius:999px;font-size:13px;opacity:.9}
+    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:12px}
+    .kpi{background:var(--card2);border:1px solid #233049;border-radius:14px;padding:18px}
+    .kpi h3{margin:0;font:800 30px "Space Grotesk"}
     .kpi p{margin:6px 0 0;color:var(--muted);font-size:12px}
+    .spark{height:38px;margin-top:8px;background:linear-gradient(90deg,rgba(47,140,255,.15),rgba(155,92,255,.12));border-radius:10px;position:relative;overflow:hidden}
+    .spark::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 2px,transparent 2px 16px);transform:translateX(-100%);animation:slide 4s linear infinite}
+    @keyframes slide{to{transform:translateX(100%)}}
 
-    .video{aspect-ratio:16/9;border:2px dashed var(--line);border-radius:12px;display:grid;place-items:center;color:#7a83a0}
-    .thumb{height:160px;border:2px dashed var(--line);border-radius:12px;display:grid;place-items:center}
+    .halo{position:absolute;inset:-20% -10% auto -10%;height:520px;background:radial-gradient(600px 260px at 20% 20%, rgba(47,140,255,.25), transparent 60%),radial-gradient(600px 260px at 70% 0%, rgba(155,92,255,.18), transparent 60%),radial-gradient(600px 260px at 60% 70%, rgba(25,195,125,.12), transparent 60%)}
 
-    footer{border-top:1px solid var(--line);padding:56px 0}
+    .section-title{font:700 26px "Space Grotesk";margin:0 0 14px}
+    .section-sub{color:var(--muted);margin:0 0 18px}
+
+    /* Carousel (videos/mockups) */
+    .carousel{position:relative;overflow:hidden}
+    .track{display:flex;gap:14px;scroll-snap-type:x mandatory;overflow-x:auto;padding-bottom:6px}
+    .track > .slide{min-width:360px;scroll-snap-align:start}
+    .video{aspect-ratio:16/9;background:#0c1222;border:1px solid #253150;border-radius:14px;display:grid;place-items:center;color:#8fa2d6}
+    .slide h4{margin:10px 0 4px;font:700 16px "Space Grotesk"}
+    .slide p{margin:0;color:var(--muted);font-size:13px}
+
+    /* Case & automation cards */
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{padding:18px}
+    .card h4{margin:0 0 8px;font:700 18px "Space Grotesk"}
+    .card ul{margin:0;padding-left:16px;line-height:1.7}
+
+    /* Funnel chart */
+    .bar{height:36px;border-radius:10px;margin:10px 0;position:relative;overflow:hidden;border:1px solid #2a3453;background:#0d1220}
+    .bar .fill{height:100%;background:var(--accent);width:0;border-radius:inherit;box-shadow:0 0 22px rgba(47,140,255,.35)}
+    .bar label{position:absolute;left:12px;top:8px;font-size:12px;color:#cdd3e6}
+    .bar .val{position:absolute;right:12px;top:8px;font-size:12px;color:#9fb3ff}
+
+    /* Simple charts (SVG) */
+    .chart-box{background:var(--card2);border:1px solid #233049;border-radius:14px;padding:12px}
+
+    footer{padding:64px 0;border-top:1px solid var(--line)}
+    .ctabox{display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px}
 
     /* Responsive */
-    @media (max-width:1024px){
-      .grid.cols-2{grid-template-columns:1fr}
-      .grid.cols-3{grid-template-columns:repeat(2,1fr)}
-      .kpis{grid-template-columns:repeat(2,1fr)}
-    }
-    @media (max-width:680px){
-      .grid.cols-3,.grid.cols-4{grid-template-columns:1fr}
-      .kpis{grid-template-columns:1fr}
-      section{padding:40px 0}
-    }
+    @media (max-width:1200px){ .col-2{grid-template-columns:1fr} }
+    @media (max-width:980px){ .col-3{grid-template-columns:repeat(2,1fr)} .kpis{grid-template-columns:repeat(2,1fr)} .track > .slide{min-width:72%} }
+    @media (max-width:640px){ .headline{font-size:36px} .kpis{grid-template-columns:1fr} .cards{grid-template-columns:1fr} .track > .slide{min-width:88%} section{padding:48px 0} }
+
+    /* Print (PDF elegante) */
+    @media print{ header,.navlinks,.btn{display:none!important} .panel{-webkit-print-color-adjust:exact;print-color-adjust:exact} .cards .card,.chart-box{break-inside:avoid} }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
       <nav>
-        <div class="brand">Luis Díaz — Growth • RevOps • Automation</div>
+        <div class="brand"><span class="dot"></span> Luis Díaz — Growth • RevOps • Automation</div>
         <div class="navlinks">
-          <a href="#hero">Inicio</a>
+          <a href="#showroom">Showroom</a>
           <a href="#cases">Casos</a>
           <a href="#auto">Automatizaciones</a>
-          <a href="#showroom">Showroom</a>
+          <a href="#metrics">Métricas</a>
           <a href="#contacto">Contacto</a>
+        </div>
+        <div class="actions">
+          <a class="btn ghost" href="#" id="btnPrint" title="Descargar PDF">PDF</a>
+          <a class="btn primary" href="#contacto">Hablemos</a>
         </div>
       </nav>
     </div>
   </header>
 
   <!-- HERO -->
-  <section id="hero">
-    <div class="container grid cols-2">
-      <div class="wf-box">
-        <h1 class="wf-title">Hero: ABM Outbound + RevOps que convierte</h1>
-        <p>Tagline corto. Chips de skills. CTA primario (Hablemos) + secundario (Ver casos).</p>
-        <div class="kpis" style="margin-top:14px">
-          <div class="kpi"><h3>230+</h3><p>reuniones</p></div>
-          <div class="kpi"><h3>35</h3><p>mejor semana</p></div>
-          <div class="kpi"><h3>6</h3><p>cuentas LinkedIn</p></div>
-          <div class="kpi"><h3>2×</h3><p>mejor conversión</p></div>
+  <section class="hero">
+    <div class="halo"></div>
+    <div class="container grid col-2">
+      <div>
+        <h1 class="headline">ABM Outbound + RevOps que <span style="background:var(--accent);-webkit-background-clip:text;background-clip:text;color:transparent">convierte</span></h1>
+        <p class="sub">Showroom de growth B2B: conversación efectiva, automatizaciones en Apps Script y dashboards accionables.
+          <br><strong>35</strong> reuniones/semana (récord) • <strong>230+</strong> acumuladas • <strong>6</strong> cuentas LinkedIn.</p>
+        <div class="chiprow">
+          <span class="chip">Cadencias & Copy</span>
+          <span class="chip">Apps Script</span>
+          <span class="chip">Calendar & Email Ops</span>
+          <span class="chip">Dashboards KPI</span>
+          <span class="chip">Team Enablement</span>
         </div>
-        <p class="wf-note">Mobile: pila vertical con KPIs en 2x2 y luego 1x4.</p>
+        <div class="kpis">
+          <div class="kpi"><h3 data-count="230">0</h3><p>reuniones</p><div class="spark"></div></div>
+          <div class="kpi"><h3 data-count="35">0</h3><p>mejor semana</p><div class="spark"></div></div>
+          <div class="kpi"><h3 data-count="6">0</h3><p>cuentas LinkedIn</p><div class="spark"></div></div>
+          <div class="kpi"><h3 data-count="2">0</h3><p>× conversión</p><div class="spark"></div></div>
+        </div>
+        <div class="chiprow" style="margin-top:14px">
+          <a class="btn primary" href="#showroom">Ver showroom</a>
+          <a class="btn" href="#cases">Casos</a>
+        </div>
       </div>
-      <div class="wf-box">
-        <h3 class="wf-title">Embudo Operativo (animado)</h3>
-        <div class="thumb">Barras horizontales (Target → Invites → Conversaciones → Calendario → Reuniones)</div>
-        <p class="wf-note">Placeholder; aquí luego va el gráfico animado real.</p>
+      <div class="panel pad">
+        <h3 class="section-title" style="margin:0 0 8px">Embudo operativo</h3>
+        <p class="section-sub" style="margin:0 0 12px">Roles: sourcing/invites (equipo) → conversaciones & agenda (Luis).</p>
+        <div>
+          <div class="bar"><span class="fill" data-w="92"></span><label>Target (filtros & boolean)</label><span class="val">920</span></div>
+          <div class="bar"><span class="fill" data-w="68"></span><label>Invites enviados (equipo)</label><span class="val">680</span></div>
+          <div class="bar"><span class="fill" data-w="34"></span><label>Conversaciones (Luis)</label><span class="val">340</span></div>
+          <div class="bar"><span class="fill" data-w="12"></span><label>Calendario (auto)</label><span class="val">120</span></div>
+          <div class="bar"><span class="fill" data-w="3.8"></span><label>Reuniones</label><span class="val">38</span></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- SHOWROOM DE AUTOMATIZACIONES EN VIDEO/MOCKUP -->
+  <!-- SHOWROOM DE AUTOMATIZACIONES (VIDEOS/MOCKUPS) -->
   <section id="showroom">
     <div class="container">
-      <div class="wf-box">
-        <h2 class="wf-title">Showroom: Automatizaciones en acción (video/mockup)</h2>
-        <p>Galería horizontal con carrusel (swipe en móvil):</p>
-        <div class="grid cols-3" style="margin-top:12px">
-          <div>
+      <h2 class="section-title">Showroom — Automatizaciones en acción</h2>
+      <p class="section-sub">Mockups animados (videos/GIFs). Sin datos sensibles.</p>
+      <div class="panel pad carousel">
+        <div class="track" id="track">
+          <div class="slide">
             <div class="video">Video/GIF — Calendar → Sheets Sync</div>
-            <p class="wf-note">Clip 10–20s mostrando cómo se registran reuniones automáticamente.</p>
+            <h4>Calendar → Sheets</h4>
+            <p>Registro automático de reuniones y ownership.</p>
           </div>
-          <div>
+          <div class="slide">
             <div class="video">Video/GIF — Weekly Summary</div>
-            <p class="wf-note">Resumen semanal con estatus, pendientes y follow-ups.</p>
+            <h4>Weekly Summary</h4>
+            <p>Resumen de estatus, pendientes y follow-ups por cuenta.</p>
           </div>
-          <div>
-            <div class="video">Video/GIF — One‑Click Meeting desde Sheets</div>
-            <p class="wf-note">Crear evento de calendario directo desde la hoja.</p>
+          <div class="slide">
+            <div class="video">Video/GIF — One‑Click Meeting</div>
+            <h4>One‑Click Meeting</h4>
+            <p>Crear evento de calendario desde Sheets en un clic.</p>
+          </div>
+          <div class="slide">
+            <div class="video">Video/GIF — Ownership Lookup</div>
+            <h4>Ownership Lookup</h4>
+            <p>Búsqueda global del dueño y origen del lead.</p>
           </div>
         </div>
-        <p class="wf-note">iPad: 2 columnas; móvil: 1 columna con swipe/carrusel.</p>
       </div>
     </div>
   </section>
 
-  <!-- MINI HISTORIAS (PROBLEMA → SOLUCIÓN → IMPACTO) -->
-  <section id="mini-casos">
+  <!-- MINI CASOS: problema → solución → impacto (incluye Huawei / Mercado Libre / SEO) -->
+  <section id="cases">
     <div class="container">
-      <div class="wf-box">
-        <h2 class="wf-title">Historias rápidas (problema → solución → impacto)</h2>
-        <div class="grid cols-3" style="margin-top:12px">
-          <div class="wf-box">
-            <h4 class="wf-title">B2B RevOps (LinkedIn)</h4>
-            <ul>
-              <li>Problema: respuesta sin cierre de cita.</li>
-              <li>Solución: cadencias ME→S→LL + CTAs calendar.</li>
-              <li>Impacto: 35 reuniones en mejor semana.</li>
-            </ul>
-          </div>
-          <div class="wf-box">
-            <h4 class="wf-title">Huawei — Caso marketing</h4>
-            <ul>
-              <li>Problema: awareness/product fit.</li>
-              <li>Solución: campaña con mensajes temáticos.</li>
-              <li>Resultado: métricas clave (placeholder).</li>
-            </ul>
-          </div>
-          <div class="wf-box">
-            <h4 class="wf-title">Mercado Libre / SEO‑Afiliados</h4>
-            <ul>
-              <li>Reto: captación vs. calidad lead.</li>
-              <li>Estrategia: clusters SEO + landings.</li>
-              <li>Impacto: CTR/conv. (placeholder).</li>
-            </ul>
-          </div>
+      <h2 class="section-title">Casos (problema → solución → impacto)</h2>
+      <div class="cards">
+        <div class="panel card">
+          <h4>B2B RevOps (LinkedIn)</h4>
+          <ul>
+            <li><strong>Problema:</strong> muchas respuestas, pocas citas.</li>
+            <li><strong>Solución:</strong> cadencias ME→S→LL + CTAs de agenda + scripts de recordatorio.</li>
+            <li><strong>Impacto:</strong> 35 reuniones en mejor semana; 230+ acumuladas; 2× conversión.</li>
+          </ul>
         </div>
-        <p class="wf-note">Sustituir placeholders con métricas seguras/anonimizadas.</p>
+        <div class="panel card">
+          <h4>Huawei — Campaña de awareness</h4>
+          <ul>
+            <li><strong>Problema:</strong> bajo reconocimiento en un segmento clave.</li>
+            <li><strong>Solución:</strong> mensajes temáticos por industria + enfoque en pains técnicos.</li>
+            <li><strong>Impacto:</strong> ↑ CTR y respuestas cualificadas (placeholder).</li>
+          </ul>
+        </div>
+        <div class="panel card">
+          <h4>Mercado Libre — Act. comercial</h4>
+          <ul>
+            <li><strong>Problema:</strong> captación con ruido vs. calidad de lead.</li>
+            <li><strong>Solución:</strong> clusters de mensajes + quick wins de agenda.</li>
+            <li><strong>Impacto:</strong> ↑ tasa de show y oportunidad (placeholder).</li>
+          </ul>
+        </div>
+        <div class="panel card">
+          <h4>SEO / Afiliados</h4>
+          <ul>
+            <li><strong>Problema:</strong> tráfico sin intención.</li>
+            <li><strong>Solución:</strong> landings orientadas a intención + interlinking.</li>
+            <li><strong>Impacto:</strong> ↑ CTR orgánico y conversión (placeholder).</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- PROCESOS DISEÑADOS -->
+  <!-- PROCESOS DISEÑADOS + SISTEMA EN SHEETS -->
   <section id="procesos">
     <div class="container">
-      <div class="wf-box">
-        <h2 class="wf-title">Procesos (diagramas)</h2>
-        <div class="grid cols-2" style="margin-top:12px">
-          <div class="wf-box">
-            <h4 class="wf-title">Flujo de operación</h4>
-            <ol>
-              <li>Invites (equipo)</li>
-              <li>Conversaciones (Luis)</li>
-              <li>Auto‑agenda (calendar)</li>
-              <li>Confirmación + recordatorios</li>
-            </ol>
-          </div>
-          <div class="wf-box">
-            <h4 class="wf-title">Sistema en Sheets</h4>
-            <ul>
-              <li>Estatus estandarizado + validaciones</li>
-              <li>Fórmulas: enviados, %respuesta, horas pico</li>
-              <li>Weekly summary + ownership lookup</li>
-              <li>One‑click meeting (Apps Script)</li>
-            </ul>
-          </div>
+      <h2 class="section-title">Procesos diseñados</h2>
+      <p class="section-sub">De manual a escalable: conversación → agenda → confirmación.</p>
+      <div class="grid col-2">
+        <div class="panel pad">
+          <h4 class="section-title" style="font-size:18px">Flujo de operación</h4>
+          <ol class="sub" style="margin:0">
+            <li>Invites (equipo) con QA</li>
+            <li>Conversaciones (Luis) con cadencias</li>
+            <li>Auto‑agenda (Calendar link + validaciones)</li>
+            <li>Confirmaciones + recordatorios</li>
+          </ol>
+        </div>
+        <div class="panel pad">
+          <h4 class="section-title" style="font-size:18px">Sistema en Sheets</h4>
+          <ul class="sub" style="margin:0;line-height:1.9">
+            <li>Estatus estandarizado + guardas</li>
+            <li>Fórmulas: enviados, %respuesta, horas pico</li>
+            <li>Weekly summary + ownership lookup</li>
+            <li>One‑click meeting (Apps Script)</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- MÉTRICAS EN GRÁFICOS (PLACEHOLDERS) -->
+  <!-- MÉTRICAS (GRÁFICOS SVG LIGEROS) -->
   <section id="metrics">
     <div class="container">
-      <div class="wf-box">
-        <h2 class="wf-title">Impacto (gráficos)</h2>
-        <div class="grid cols-3" style="margin-top:12px">
-          <div class="thumb">Línea: reuniones por semana (antes/después)</div>
-          <div class="thumb">Barras: respuestas por hora del día</div>
-          <div class="thumb">Donut: % conversión respuesta→cita</div>
+      <h2 class="section-title">Métricas visuales</h2>
+      <div class="grid col-3">
+        <div class="chart-box">
+          <h4 style="margin:0 0 6px;font:700 16px 'Space Grotesk'">Reuniones por semana</h4>
+          <svg viewBox="0 0 300 120" width="100%" height="120" preserveAspectRatio="none">
+            <polyline points="0,100 40,92 80,88 120,86 160,80 200,62 240,48 280,40" fill="none" stroke="url(#g1)" stroke-width="3"/>
+            <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#2F8CFF"/><stop offset="100%" stop-color="#9B5CFF"/></linearGradient></defs>
+          </svg>
+          <p class="sub">Curva demo antes→después de asumir operación.</p>
         </div>
-        <p class="wf-note">Luego reemplazar por SVG/Canvas animado ligero.</p>
+        <div class="chart-box">
+          <h4 style="margin:0 0 6px;font:700 16px 'Space Grotesk'">Respuestas por hora del día</h4>
+          <svg viewBox="0 0 300 120" width="100%" height="120" preserveAspectRatio="none">
+            <rect x="20" y="60" width="22" height="40" rx="4" fill="#2F8CFF" opacity=".8"/>
+            <rect x="60" y="40" width="22" height="60" rx="4" fill="#2F8CFF" opacity=".9"/>
+            <rect x="100" y="30" width="22" height="70" rx="4" fill="#9B5CFF" opacity=".9"/>
+            <rect x="140" y="44" width="22" height="56" rx="4" fill="#19C37D" opacity=".9"/>
+            <rect x="180" y="58" width="22" height="42" rx="4" fill="#2F8CFF" opacity=".8"/>
+            <rect x="220" y="70" width="22" height="30" rx="4" fill="#9B5CFF" opacity=".8"/>
+          </svg>
+          <p class="sub">Pico simulado: 10–13 h y 15–17 h.</p>
+        </div>
+        <div class="chart-box">
+          <h4 style="margin:0 0 6px;font:700 16px 'Space Grotesk'">Conversión respuesta→cita</h4>
+          <svg viewBox="0 0 300 120" width="100%" height="120" preserveAspectRatio="none">
+            <circle cx="60" cy="60" r="50" fill="#0f1320" stroke="#233049"/>
+            <path d="M60 60 L60 10 A50 50 0 1 1 16 84 Z" fill="#2F8CFF"/>
+            <circle cx="220" cy="60" r="50" fill="#0f1320" stroke="#233049"/>
+            <path d="M220 60 L220 10 A50 50 0 1 1 176 84 Z" fill="#9B5CFF"/>
+          </svg>
+          <p class="sub">Donuts demo: distribución comparativa.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -198,12 +295,45 @@
   <!-- CTA -->
   <footer id="contacto">
     <div class="container">
-      <div class="wf-box">
-        <h2 class="wf-title">CTA</h2>
-        <p>Botones: Contacto (email), LinkedIn, Descargar PDF. QR opcional.</p>
-        <p class="wf-note">Mobile‑first: botones grandes y táctiles.</p>
+      <div class="ctabox">
+        <h2 class="section-title" style="margin:0">¿Construimos tu máquina de growth?</h2>
+        <p class="section-sub" style="margin:0">Roles Growth/RevOps B2B (LATAM/Remote). Portafolio listo para PDF.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+          <a class="btn primary" href="mailto:luisdiazg1101@gmail.com">luisdiazg1101@gmail.com</a>
+          <a class="btn" href="https://www.linkedin.com/in/luis-dag/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn ghost" href="#" id="btnPrint2">Descargar PDF</a>
+        </div>
       </div>
     </div>
   </footer>
+
+  <script>
+    // Smooth scroll for internal anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{const id=a.getAttribute('href'); if(id.length>1){e.preventDefault();document.querySelector(id).scrollIntoView({behavior:'smooth'});}})
+    })
+
+    // KPI counters
+    const clamp=(n,min,max)=>Math.max(min,Math.min(max,n));
+    const inView=(el)=>{const r=el.getBoundingClientRect();return r.top<window.innerHeight*0.9}
+    const runCounters=()=>{
+      document.querySelectorAll('.kpi h3').forEach(h=>{
+        if(h.dataset.done) return; if(!inView(h)) return;
+        const target=+h.dataset.count; let cur=0; const dur=1100; const t0=performance.now();
+        const step=(t)=>{const p=clamp((t-t0)/dur,0,1); cur=Math.floor(target*(0.12+0.88*(p*p))); h.textContent=cur.toLocaleString('es-MX'); if(p<1) requestAnimationFrame(step); else h.dataset.done=true}
+        requestAnimationFrame(step);
+      })
+    }
+    window.addEventListener('scroll',runCounters); window.addEventListener('load',runCounters);
+
+    // Funnel bars
+    const bars=[...document.querySelectorAll('.bar .fill')];
+    const animateBars=()=>{ bars.forEach(b=>{ if(b.dataset.done) return; const parent=b.closest('.bar'); if(!inView(parent)) return; b.style.width=b.dataset.w+'%'; b.style.transition='width 1100ms cubic-bezier(.2,.8,.2,1)'; b.dataset.done=true; }); }
+    window.addEventListener('scroll',animateBars); window.addEventListener('load',animateBars);
+
+    // Print to PDF
+    const printBtns=[document.getElementById('btnPrint'),document.getElementById('btnPrint2')].filter(Boolean);
+    printBtns.forEach(btn=>btn.addEventListener('click',(e)=>{ e.preventDefault(); window.print(); }))
+  </script>
 </body>
 </html>
