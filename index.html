@@ -95,7 +95,7 @@
 
     /* Print (PDF) */
     @media print{
-      header,.btn,.navlinks{display:none!important}
+      header,.btn,.navlinks,.carousel video{display:none!important}
       .panel{-webkit-print-color-adjust:exact;print-color-adjust:exact}
       .card{break-inside:avoid}
       body{background:#fff;color:#111}
@@ -110,7 +110,8 @@
         <div class="navlinks">
           <a href="#about">About</a>
           <a href="#filters">Targeting</a>
-          <a href="#cases">Casos</a>
+          <a href="#case7">Case Study</a>
+          <a href="#showroom">Showroom</a>
           <a href="#metrics">KPIs</a>
           <a href="#stack">Tech</a>
           <a href="#contacto">Contacto</a>
@@ -129,7 +130,7 @@
     <div class="container grid col-2">
       <div>
         <h1 class="headline">Convierto <span style="background:var(--accent);-webkit-background-clip:text;background-clip:text;color:transparent">estrategias</span> en crecimiento real con datos, tech y ventas inteligentes</h1>
-        <p class="sub">Me <strong>apasiona</strong> el growth B2B, el outbound y el RevOps. Diseño sistemas de prospección, automatizo en <strong>Apps Script</strong> y opero <strong>multicuenta LinkedIn</strong> para agendar con C‑level.</p>
+        <p class="sub">Me <strong>apasiona</strong> el growth B2B, el outbound y el RevOps. Diseño sistemas de prospección, automatizo en <strong>Apps Script</strong> y opero <strong>multicuenta LinkedIn</strong> para agendar con C-level (sin inflar vanities).</p>
         <div class="chiprow">
           <span class="chip">ABM • Copy & Sequences</span>
           <span class="chip">RevOps • Apps Script</span>
@@ -139,23 +140,24 @@
         </div>
         <div class="kpis">
           <div class="kpi"><h3 data-count="565">0</h3><p>reuniones agendadas</p><div class="spark"></div></div>
-          <div class="kpi"><h3 data-count="18180">0</h3><p>relacionadores contactados</p><div class="spark"></div></div>
-          <div class="kpi"><h3 data-count="47.33">0</h3><p>% mensajes enviados</p><div class="spark"></div></div>
-          <div class="kpi"><h3 data-count="3.11">0</h3><p>% booking sobre contactados</p><div class="spark"></div></div>
+          <div class="kpi"><h3 data-count="6.17">0</h3><p>% booking (sobre contactados)</p><div class="spark"></div></div>
+          <div class="kpi"><h3 data-count="69.73">0</h3><p>% show (asistencia)</p><div class="spark"></div></div>
+          <div class="kpi"><h3 data-count="77.92">0</h3><p>% activación (sinergia)</p><div class="spark"></div></div>
         </div>
         <div class="chiprow" style="margin-top:14px">
           <a class="btn primary" href="#showroom">Ver Showroom</a>
-          <a class="btn" href="#cases">Casos</a>
+          <a class="btn" href="#case7">Case Study</a>
         </div>
       </div>
       <div class="panel pad">
-        <h3 class="section-title" style="margin:0 0 8px">Embudo Operativo</h3>
-        <p class="section-sub" style="margin:0 0 12px">Sourcing/invites (equipo) → conversaciones & agenda (Luis) → confirmaciones automáticas.</p>
+        <h3 class="section-title" style="margin:0 0 8px">Embudo Operativo (7 meses)</h3>
+        <p class="section-sub" style="margin:0 0 12px">Sourcing/invites (equipo) → conversaciones & agenda → recordatorios → show → activación.</p>
         <div>
-          <div class="bar"><span class="fill" data-w="92"></span><label>Target (filtros & boolean)</label><span class="val">18,180</span></div>
-          <div class="bar"><span class="fill" data-w="47.33"></span><label>Mensajes enviados</label><span class="val">47.33%</span></div>
-          <div class="bar"><span class="fill" data-w="3.11"></span><label>Booking rate (sobre contactados)</label><span class="val">3.11%</span></div>
-          <div class="bar"><span class="fill" data-w="32.04"></span><label>Activación (show de agendados)</label><span class="val">32.04%</span></div>
+          <div class="bar"><span class="fill" data-w="100"></span><label>Target construido</label><span class="val">18,180</span></div>
+          <div class="bar"><span class="fill" data-w="50.36"></span><label>Contactados (mensajes enviados)</label><span class="val">9,155 (50.36%)</span></div>
+          <div class="bar"><span class="fill" data-w="6.17"></span><label>Booking</label><span class="val">565 (6.17%)</span></div>
+          <div class="bar"><span class="fill" data-w="69.73"></span><label>Show (asistencia)</label><span class="val">394 (69.73%)</span></div>
+          <div class="bar"><span class="fill" data-w="77.92"></span><label>Activación (sinergia)</label><span class="val">307 (77.92%)</span></div>
         </div>
       </div>
     </div>
@@ -165,12 +167,12 @@
   <section id="about">
     <div class="container">
       <h2 class="section-title">Historia Growth</h2>
-      <p class="section-sub">Opero como builder: tomo embudos confusos y los convierto en sistemas. Me mueve combinar UX, datos y automatización para que las conversaciones se conviertan en citas ejecutivas y pipeline real.</p>
+      <p class="section-sub">Opero como builder: convierto embudos confusos en sistemas claros. Me mueve combinar UX, datos y automatización para que las conversaciones se conviertan en citas ejecutivas y pipeline real.</p>
       <div class="panel pad" style="display:flex;gap:10px;flex-wrap:wrap">
-        <span class="badge">Gestión 5–6 cuentas</span>
+        <span class="badge">Gestión 5–6 cuentas LinkedIn</span>
         <span class="badge">Cadencias ME→S→LL</span>
         <span class="badge">Weekly summary auto</span>
-        <span class="badge">One‑click meetings</span>
+        <span class="badge">One-click meetings</span>
         <span class="badge">Ownership lookup</span>
       </div>
     </div>
@@ -179,13 +181,13 @@
   <!-- TARGETING & FILTROS -->
   <section id="filters">
     <div class="container">
-      <h2 class="section-title">Targeting & Filtros que diseñé</h2>
-      <p class="section-sub">Construí filtros en LinkedIn Sales Navigator combinando <strong>seniority C‑level</strong>, <strong>función (IT/Innovación/Producto)</strong>, <strong>industria</strong>, <strong>tamaño de empresa</strong>, <strong>región</strong> y <strong>boolean operators</strong> para afinar dolor/tecnología.</p>
+      <h2 class="section-title">Targeting & Filtros diseñados</h2>
+      <p class="section-sub">Filtros en LinkedIn Sales Navigator combinando <strong>seniority C-level</strong>, <strong>función (TI/Innovación/Producto/Comercial)</strong>, <strong>industria</strong>, <strong>tamaño de empresa</strong>, <strong>región</strong> y <strong>boolean operators</strong>.</p>
       <div class="cards">
         <div class="panel card">
           <h4>Estrategia de filtros</h4>
           <ul>
-            <li>Boolean por stack/problema (e.g., "(AI OR Data) AND (Go‑to‑Market OR RevOps)").</li>
+            <li>Boolean por stack/problema (p.ej.: <em>(AI OR Data) AND (Go-to-Market OR RevOps)</em>).</li>
             <li>Seniority: CIO/CTO/CEO/CDO/VP/Director.</li>
             <li>Función: TI, Innovación, Producto, Comercial.</li>
           </ul>
@@ -194,18 +196,78 @@
           <h4>Alcance logrado</h4>
           <ul>
             <li>Perfiles como <strong>CIOs, CTOs, CEOs, VPs y Directores</strong>.</li>
-            <li>En <em>empresas como</em>: Coca‑Cola FEMSA, AXA, Edenred, Italika, Grupo Modelo, ACE México, Holcim, Sigma, Aon México, Banco Azteca, Banamex, Stanley Black & Decker, Benteler Group, Secretaría de Economía (MX), APYMSA, Hughes, Farmacias del Ahorro, Sally Beauty, Talisis, Grupo Salinas, Coty, Gebesa, General Motors, MAPFRE, Procter & Gamble, etc.</li>
-            <li>Validación iterativa con hoja histórica de filtros.</li>
+            <li>En <em>empresas como</em>: Coca-Cola FEMSA, AXA, Edenred, Italika, Grupo Modelo, Holcim, Sigma, Aon México, Banco Azteca, Banamex, Stanley Black & Decker, Benteler Group, Secretaría de Economía (MX), General Motors, Procter & Gamble, entre otras.</li>
+            <li>Histórico de filtros para iterar sin duplicidades.</li>
           </ul>
         </div>
         <div class="panel card">
           <h4>Resultado</h4>
           <ul>
             <li><strong>565</strong> reuniones agendadas.</li>
-            <li><strong>3.11%</strong> booking sobre contactados.</li>
-            <li>Mejora de conversión mediante cadencias + agenda sin fricción.</li>
+            <li><strong>6.17%</strong> booking sobre contactados (top-tier outbound frío).</li>
+            <li>Activación post-llamada: <strong>77.9%</strong> (sinergia real).</li>
           </ul>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY 7 MESES -->
+  <section id="case7">
+    <div class="container">
+      <h2 class="section-title">Case Study — Estrategia Outbound (7 meses)</h2>
+      <p class="section-sub">Funnel B2B gestionado y optimizado, con foco en decisión C-level y sinergia real.</p>
+
+      <div class="panel pad">
+        <h3>🧠 Rol</h3>
+        <ul>
+          <li>Estratega comercial y operador outbound B2B en LATAM (no team lead formal).</li>
+          <li>Filtros booleanos avanzados y targeting de precisión en Sales Navigator.</li>
+          <li>Mensajes consultivos (Sandler), CTA directo y autoridad social.</li>
+          <li>CRM operativo en Google Sheets + dashboards semanales.</li>
+          <li>Operación multicuenta de LinkedIn de forma coordinada.</li>
+        </ul>
+      </div>
+
+      <div class="panel pad">
+        <h3>📊 Funnel de Conversión (Totales)</h3>
+        <table style="width:100%;border-collapse:collapse;color:var(--ink)">
+          <tr><td>🎯 Target total construido</td><td>18,180</td><td>100%</td></tr>
+          <tr><td>💬 Contactados (mensajes enviados)</td><td>9,155</td><td>50.36%</td></tr>
+          <tr><td>📅 Reuniones agendadas</td><td>565</td><td><strong>6.17%</strong> (top-tier)</td></tr>
+          <tr><td>✅ Reuniones con asistencia</td><td>394</td><td>69.73%</td></tr>
+          <tr><td>💥 Activados (sinergia real)</td><td>307</td><td>77.92%</td></tr>
+          <tr><td>🌱 Oportunidades comerciales</td><td>307</td><td>3.35% del total contactado</td></tr>
+        </table>
+        <p class="section-sub">Benchmark: outbound frío B2B suele estar en 1–5% de booking; 6.17% es competitivo (top 10%).</p>
+      </div>
+
+      <div class="panel pad">
+        <h3>🚀 Estrategias aplicadas</h3>
+        <h4>1) Targeting de alta precisión</h4>
+        <p>Boolean + seniority/función/industria. Alcance a CIOs/CTOs/CEOs/VPs/Directores en empresas enterprise y upper mid-market.</p>
+        <h4>2) Mensajes de conversión</h4>
+        <p>Secuencias consultivas + pruebas semanales de copies (cold → warm → calendar) con CTA claro.</p>
+        <h4>3) Automatización & análisis</h4>
+        <p>CRM en Sheets con estatus estandarizados, métricas (respuesta/booking/show) y resúmenes semanales automáticos.</p>
+      </div>
+
+      <div class="panel pad">
+        <h3>💡 Innovaciones clave</h3>
+        <ul>
+          <li><strong>Recordatorios automáticos</strong>: reducción de no-shows ~<strong>90%</strong> enviando emails 24/12/1h antes (Calendar + Sheets).</li>
+          <li><strong>Seguimiento inteligente</strong>: flujos para reagendar segundas llamadas y mantener momentum.</li>
+          <li><strong>Hoja histórica de filtros</strong>: repositorio para iterar targeting y evitar duplicidades.</li>
+        </ul>
+      </div>
+
+      <div class="panel pad">
+        <h3>📈 Impacto total</h3>
+        <ul>
+          <li>+9,000 personas contactadas manualmente.</li>
+          <li>565 reuniones agendadas sin SDR tradicional.</li>
+          <li>307 oportunidades comerciales reales (activadas con sinergia).</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -214,7 +276,7 @@
   <section id="showroom">
     <div class="container">
       <h2 class="section-title">Showroom — Automatizaciones en acción</h2>
-      <p class="section-sub">Mockups de “screen recording” (reemplazables por videos reales): Calendar↔Sheets, Weekly Summary, One‑Click Meeting, Ownership Lookup.</p>
+      <p class="section-sub">Reemplaza estos MP4 por grabaciones reales (mismo nombre en <code>/assets</code>).</p>
       <div class="panel pad carousel">
         <div class="track">
           <div class="slide">
@@ -223,11 +285,11 @@
           </div>
           <div class="slide">
             <video class="demo-media" autoplay loop muted playsinline src="assets/weekly-summary.mp4"></video>
-            <h4>Weekly Summary</h4><p>Estatus, pendientes y follow‑ups enviados en email HTML.</p>
+            <h4>Weekly Summary</h4><p>Estatus, pendientes y follow-ups enviados en email HTML.</p>
           </div>
           <div class="slide">
             <video class="demo-media" autoplay loop muted playsinline src="assets/one-click-meeting.mp4"></video>
-            <h4>One‑Click Meeting</h4><p>Crea eventos de calendario desde Sheets con un clic.</p>
+            <h4>One-Click Meeting</h4><p>Crea eventos en Calendar desde Sheets con un clic.</p>
           </div>
           <div class="slide">
             <video class="demo-media" autoplay loop muted playsinline src="assets/ownership-lookup.mp4"></video>
@@ -235,7 +297,6 @@
           </div>
         </div>
       </div>
-      <p class="section-sub">Si aún no tienes los videos, usa GIFs o placeholders (mismo nombre de archivo) y actualiza cuando estén listos.</p>
     </div>
   </section>
 
@@ -243,7 +304,7 @@
   <section>
     <div class="container">
       <h2 class="section-title">Experience Highlights</h2>
-      <p class="section-sub">Consultoría de crecimiento B2B (LATAM): operación multicuenta, cadencias, dashboards y automatizaciones en RevOps.</p>
+      <p class="section-sub">Operación multicuenta, cadencias, dashboards y automatizaciones en RevOps.</p>
       <div class="cards">
         <div class="panel card">
           <h4>Conversaciones → Reunión</h4>
@@ -256,7 +317,7 @@
         <div class="panel card">
           <h4>RevOps en Sheets</h4>
           <ul>
-            <li><strong>Estatus</strong> estandarizados + validaciones.</li>
+            <li>Estatus estandarizados + validaciones.</li>
             <li>Fórmulas para enviados, %respuesta, horas pico.</li>
             <li><strong>2×</strong> mejora en conversión a cita.</li>
           </ul>
@@ -266,41 +327,40 @@
           <ul>
             <li>Calendar↔Sheets (registro auto de reuniones).</li>
             <li>Weekly summary + recordatorios por email.</li>
-            <li><strong>One‑click meeting</strong> desde Sheets.</li>
+            <li><strong>One-click meeting</strong> desde Sheets.</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CASE STUDIES -->
-  <section id="cases">
+  <!-- CASE STUDIES EXTRA -->
+  <section>
     <div class="container">
-      <h2 class="section-title">Case Studies</h2>
-      <p class="section-sub">Narrativa breve + visuales estilo SaaS.</p>
+      <h2 class="section-title">Case Studies (extra)</h2>
       <div class="cards">
         <div class="panel card">
           <h4>ABM Outbound (B2B)</h4>
           <ul>
             <li><strong>Problema:</strong> respuestas sin cierre de cita.</li>
-            <li><strong>Solución:</strong> secuencias personalizadas + follow‑ups cronometrados.</li>
+            <li><strong>Solución:</strong> secuencias personalizadas + follow-ups cronometrados.</li>
             <li><strong>Impacto:</strong> 2× conversión respuesta→reunión.</li>
           </ul>
         </div>
         <div class="panel card">
-          <h4>No‑shows ↓ 90% (Recordatorios)</h4>
+          <h4>SEO / Afiliados</h4>
           <ul>
-            <li><strong>Problema:</strong> leads que no se conectaban a la reunión.</li>
-            <li><strong>Solución:</strong> recordatorios automáticos (Calendar + Sheets → email) 24/12/1 h antes.</li>
-            <li><strong>Impacto:</strong> reducción de no‑shows ~<strong>90%</strong>; más oportunidades reales.</li>
+            <li><strong>Problema:</strong> tráfico sin intención.</li>
+            <li><strong>Solución:</strong> clusters de contenido + interlinking.</li>
+            <li><strong>Impacto:</strong> ↑ CTR orgánico y conversión (placeholder).</li>
           </ul>
         </div>
         <div class="panel card">
-          <h4>Seguimiento & Reagendados</h4>
+          <h4>Activación Comercial</h4>
           <ul>
-            <li><strong>Problema:</strong> pérdida de momentum tras la primera llamada.</li>
-            <li><strong>Solución:</strong> automatización de follow‑ups + enlace de auto‑reagenda.</li>
-            <li><strong>Impacto:</strong> ↑ segundas reuniones y continuidad de pipeline.</li>
+            <li><strong>Problema:</strong> ruido en captación vs. calidad.</li>
+            <li><strong>Solución:</strong> mensajes por vertical + quick wins a agenda.</li>
+            <li><strong>Impacto:</strong> ↑ tasa de show y oportunidad (placeholder).</li>
           </ul>
         </div>
       </div>
@@ -336,11 +396,11 @@
         </div>
         <div class="kpis" style="margin-top:12px">
           <div class="kpi"><h3 data-count="565">0</h3><p>reuniones agendadas</p><div class="spark"></div></div>
-          <div class="kpi"><h3 data-count="3.11">0</h3><p>% booking (18,180→565)</p><div class="spark"></div></div>
-          <div class="kpi"><h3 data-count="32.04">0</h3><p>% activación (show)</p><div class="spark"></div></div>
-          <div class="kpi"><h3 data-count="47.33">0</h3><p>% mensajes enviados</p><div class="spark"></div></div>
+          <div class="kpi"><h3 data-count="6.17">0</h3><p>% booking (9,155→565)</p><div class="spark"></div></div>
+          <div class="kpi"><h3 data-count="69.73">0</h3><p>% show (asistencia)</p><div class="spark"></div></div>
+          <div class="kpi"><h3 data-count="77.92">0</h3><p>% activación (sinergia)</p><div class="spark"></div></div>
         </div>
-        <p class="section-sub">Contexto de industria (outbound frío B2B): booking típico 1–5% es común; 3%+ es competitivo. El show rate mejora notablemente con recordatorios multi‑touch y verificación de calendario.</p>
+        <p class="section-sub">Contexto: en outbound frío, 1–5% de booking es habitual; 6%+ es competitivo. El show rate sube mucho con recordatorios multi-touch y verificación de calendario.</p>
       </div>
     </div>
   </section>
@@ -384,35 +444,32 @@
   <script>
     // Helpers
     const clamp=(n,min,max)=>Math.max(min,Math.min(max,n));
-    const inView=(el)=>{const r=el.getBoundingClientRect();return r.top<window.innerHeight*0.9};
-
-    // Format numbers nicely
-    const fmt = (el)=>{
-      const val = parseFloat(el.textContent.replace(/,/g,''));
-      if(el.textContent.includes('%')) return; // skip static
-    };
+    const inView=(el)=>{const r=el.getBoundingClientRect();return r.top<window.innerHeight*0.9}
 
     // Counters
     const runCounters=()=>{document.querySelectorAll('.kpi h3').forEach(h=>{
       if(h.dataset.done) return; if(!inView(h)) return;
-      const target=+h.dataset.count; let cur=0; const dur=1100; const t0=performance.now();
-      const step=(t)=>{const p=clamp((t-t0)/dur,0,1); let show = target*(0.12+0.88*(p*p));
-        let txt = (target>=100? Math.floor(show).toLocaleString('es-MX') : show.toFixed(2));
-        h.textContent=txt; if(p<1) requestAnimationFrame(step); else h.dataset.done=true}
+      const target=+h.dataset.count; const dur=1100; const t0=performance.now();
+      const step=(t)=>{const p=clamp((t-t0)/dur,0,1); const eased=(0.12+0.88*(p*p));
+        const show = target>=100 ? Math.floor(target*eased).toLocaleString('es-MX') : (target*eased).toFixed(2);
+        h.textContent = show; if(p<1) requestAnimationFrame(step); else h.dataset.done=true}
       requestAnimationFrame(step);
     })};
     window.addEventListener('scroll',runCounters); window.addEventListener('load',runCounters);
 
     // Funnel bars
     const bars=[...document.querySelectorAll('.bar .fill')];
-    const animateBars=()=>{bars.forEach(b=>{ if(b.dataset.done) return; const parent=b.closest('.bar'); if(!inView(parent)) return; b.style.width=b.dataset.w+'%'; b.style.transition='width 1100ms cubic-bezier(.2,.8,.2,1)'; b.dataset.done=true; });}
+    const animateBars=()=>{bars.forEach(b=>{ if(b.dataset.done) return; const parent=b.closest('.bar'); if(!inView(parent)) return;
+      b.style.width=b.dataset.w+'%'; b.style.transition='width 1100ms cubic-bezier(.2,.8,.2,1)'; b.dataset.done=true; });}
     window.addEventListener('scroll',animateBars); window.addEventListener('load',animateBars);
 
     // Print to PDF
-    document.getElementById('btnPrint').addEventListener('click',(e)=>{ e.preventDefault(); window.print(); });
+    const printBtn=document.getElementById('btnPrint');
+    if(printBtn){ printBtn.addEventListener('click',(e)=>{ e.preventDefault(); window.print(); }); }
 
     // Scroll top
-    document.getElementById('btnTop').addEventListener('click',(e)=>{ e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); });
+    const topBtn=document.getElementById('btnTop');
+    if(topBtn){ topBtn.addEventListener('click',(e)=>{ e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); }); }
   </script>
 </body>
 </html>
