@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Luis Díaz — Growth, Outbound & RevOps Portfolio</title>
-  <meta name="description" content="Portafolio showroom de Luis Díaz: ABM outbound, RevOps y automatizaciones que convierten. KPIs, casos, stack y videos mockup." />
+  <meta name="description" content="Portafolio de Luis Díaz: outbound B2B, RevOps y automatizaciones con impacto. KPIs, filtros, case study y tech stack." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
@@ -72,17 +72,10 @@
     .card ul{margin:0;padding-left:16px;line-height:1.7}
     .badge{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid #27324a;font-size:12px;margin-right:6px;color:#c8cee0}
 
-    /* Carousel (videos/mockups) */
-    .carousel{position:relative;overflow:hidden}
-    .track{display:flex;gap:14px;scroll-snap-type:x mandatory;overflow-x:auto;padding-bottom:6px}
-    .slide{min-width:360px;scroll-snap-align:start}
-    .slide h4{margin:10px 0 4px;font:700 16px "Space Grotesk"}
-    .slide p{margin:0;color:var(--muted);font-size:13px}
-    .demo-media{aspect-ratio:16/9;border-radius:14px;border:1px solid #233049;background:#0c1222;width:100%;display:block}
-
-    /* Tech stack chips */
-    .stack{display:flex;flex-wrap:wrap;gap:12px}
-    .tool{padding:10px 14px;border:1px solid #24304a;border-radius:12px;background:#0f1320}
+    /* Checklist list style */
+    .list{display:grid;gap:10px}
+    .list li{margin-left:0;list-style:none;padding-left:28px;position:relative;line-height:1.6}
+    .list li::before{content:"";position:absolute;left:0;top:7px;width:14px;height:14px;border-radius:4px;background:var(--accent);box-shadow:0 0 14px rgba(47,140,255,.35)}
 
     /* Footer */
     footer{padding:64px 0;border-top:1px solid var(--line)}
@@ -90,12 +83,12 @@
 
     /* Responsive */
     @media (max-width:1200px){ .col-2{grid-template-columns:1fr} }
-    @media (max-width:980px){ .col-3{grid-template-columns:repeat(2,1fr)} .kpis{grid-template-columns:repeat(2,1fr)} .track .slide{min-width:72%} }
-    @media (max-width:640px){ .headline{font-size:36px} .kpis{grid-template-columns:1fr} .cards{grid-template-columns:1fr} .track .slide{min-width:88%} section{padding:48px 0} }
+    @media (max-width:980px){ .col-3{grid-template-columns:repeat(2,1fr)} .kpis{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width:640px){ .headline{font-size:36px} .kpis{grid-template-columns:1fr} .cards{grid-template-columns:1fr} section{padding:48px 0} }
 
     /* Print (PDF) */
     @media print{
-      header,.btn,.navlinks,.carousel video{display:none!important}
+      header,.btn,.navlinks{display:none!important}
       .panel{-webkit-print-color-adjust:exact;print-color-adjust:exact}
       .card{break-inside:avoid}
       body{background:#fff;color:#111}
@@ -111,7 +104,7 @@
           <a href="#about">About</a>
           <a href="#filters">Targeting</a>
           <a href="#case7">Case Study</a>
-          <a href="#showroom">Showroom</a>
+          <a href="#automations">Automatizaciones</a>
           <a href="#metrics">KPIs</a>
           <a href="#stack">Tech</a>
           <a href="#contacto">Contacto</a>
@@ -145,8 +138,8 @@
           <div class="kpi"><h3 data-count="77.92">0</h3><p>% activación (sinergia)</p><div class="spark"></div></div>
         </div>
         <div class="chiprow" style="margin-top:14px">
-          <a class="btn primary" href="#showroom">Ver Showroom</a>
-          <a class="btn" href="#case7">Case Study</a>
+          <a class="btn primary" href="#case7">Ver Case Study</a>
+          <a class="btn" href="#automations">Ver Automatizaciones</a>
         </div>
       </div>
       <div class="panel pad">
@@ -167,7 +160,7 @@
   <section id="about">
     <div class="container">
       <h2 class="section-title">Historia Growth</h2>
-      <p class="section-sub">Opero como builder: convierto embudos confusos en sistemas claros. Me mueve combinar UX, datos y automatización para que las conversaciones se conviertan en citas ejecutivas y pipeline real.</p>
+      <p class="section-sub">Opero como builder: convierto embudos confusos en sistemas claros. Me mueve combinar UX, datos y automatización para que las conversaciones se conviertan en citas ejecutivas y pipeline real. No fui team lead formal; trabajé con autonomía y toma de decisión para optimizar la operación.</p>
       <div class="panel pad" style="display:flex;gap:10px;flex-wrap:wrap">
         <span class="badge">Gestión 5–6 cuentas LinkedIn</span>
         <span class="badge">Cadencias ME→S→LL</span>
@@ -204,7 +197,7 @@
           <h4>Resultado</h4>
           <ul>
             <li><strong>565</strong> reuniones agendadas.</li>
-            <li><strong>6.17%</strong> booking sobre contactados (top-tier outbound frío).</li>
+            <li><strong>6.17%</strong> booking sobre contactados (competitivo en outbound frío).</li>
             <li>Activación post-llamada: <strong>77.9%</strong> (sinergia real).</li>
           </ul>
         </div>
@@ -220,12 +213,12 @@
 
       <div class="panel pad">
         <h3>🧠 Rol</h3>
-        <ul>
+        <ul class="list">
           <li>Estratega comercial y operador outbound B2B en LATAM (no team lead formal).</li>
           <li>Filtros booleanos avanzados y targeting de precisión en Sales Navigator.</li>
           <li>Mensajes consultivos (Sandler), CTA directo y autoridad social.</li>
           <li>CRM operativo en Google Sheets + dashboards semanales.</li>
-          <li>Operación multicuenta de LinkedIn de forma coordinada.</li>
+          <li>Operación multicuenta de LinkedIn coordinada.</li>
         </ul>
       </div>
 
@@ -239,128 +232,71 @@
           <tr><td>💥 Activados (sinergia real)</td><td>307</td><td>77.92%</td></tr>
           <tr><td>🌱 Oportunidades comerciales</td><td>307</td><td>3.35% del total contactado</td></tr>
         </table>
-        <p class="section-sub">Benchmark: outbound frío B2B suele estar en 1–5% de booking; 6.17% es competitivo (top 10%).</p>
-      </div>
-
-      <div class="panel pad">
-        <h3>🚀 Estrategias aplicadas</h3>
-        <h4>1) Targeting de alta precisión</h4>
-        <p>Boolean + seniority/función/industria. Alcance a CIOs/CTOs/CEOs/VPs/Directores en empresas enterprise y upper mid-market.</p>
-        <h4>2) Mensajes de conversión</h4>
-        <p>Secuencias consultivas + pruebas semanales de copies (cold → warm → calendar) con CTA claro.</p>
-        <h4>3) Automatización & análisis</h4>
-        <p>CRM en Sheets con estatus estandarizados, métricas (respuesta/booking/show) y resúmenes semanales automáticos.</p>
-      </div>
-
-      <div class="panel pad">
-        <h3>💡 Innovaciones clave</h3>
-        <ul>
-          <li><strong>Recordatorios automáticos</strong>: reducción de no-shows ~<strong>90%</strong> enviando emails 24/12/1h antes (Calendar + Sheets).</li>
-          <li><strong>Seguimiento inteligente</strong>: flujos para reagendar segundas llamadas y mantener momentum.</li>
-          <li><strong>Hoja histórica de filtros</strong>: repositorio para iterar targeting y evitar duplicidades.</li>
-        </ul>
-      </div>
-
-      <div class="panel pad">
-        <h3>📈 Impacto total</h3>
-        <ul>
-          <li>+9,000 personas contactadas manualmente.</li>
-          <li>565 reuniones agendadas sin SDR tradicional.</li>
-          <li>307 oportunidades comerciales reales (activadas con sinergia).</li>
-        </ul>
+        <p class="section-sub">Benchmark: outbound frío B2B suele estar en 1–5% de booking; 6.17% es competitivo. El show rate sube con recordatorios multi-touch y verificación de calendario.</p>
       </div>
     </div>
   </section>
 
-  <!-- SHOWROOM (videos/mockups) -->
-  <section id="showroom">
+  <!-- AUTOMATIZACIONES -->
+  <section id="automations">
     <div class="container">
-      <h2 class="section-title">Showroom — Automatizaciones en acción</h2>
-      <p class="section-sub">Reemplaza estos MP4 por grabaciones reales (mismo nombre en <code>/assets</code>).</p>
-      <div class="panel pad carousel">
-        <div class="track">
-          <div class="slide">
-            <video class="demo-media" autoplay loop muted playsinline src="assets/calendar-sheets.mp4"></video>
-            <h4>Calendar → Sheets</h4><p>Registro automático de reuniones y ownership.</p>
-          </div>
-          <div class="slide">
-            <video class="demo-media" autoplay loop muted playsinline src="assets/weekly-summary.mp4"></video>
-            <h4>Weekly Summary</h4><p>Estatus, pendientes y follow-ups enviados en email HTML.</p>
-          </div>
-          <div class="slide">
-            <video class="demo-media" autoplay loop muted playsinline src="assets/one-click-meeting.mp4"></video>
-            <h4>One-Click Meeting</h4><p>Crea eventos en Calendar desde Sheets con un clic.</p>
-          </div>
-          <div class="slide">
-            <video class="demo-media" autoplay loop muted playsinline src="assets/ownership-lookup.mp4"></video>
-            <h4>Ownership Lookup</h4><p>Detecta dueño y origen del lead en todo el libro.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE HIGHLIGHTS -->
-  <section>
-    <div class="container">
-      <h2 class="section-title">Experience Highlights</h2>
-      <p class="section-sub">Operación multicuenta, cadencias, dashboards y automatizaciones en RevOps.</p>
+      <h2 class="section-title">Automatizaciones (RevOps en acción)</h2>
+      <p class="section-sub">Diseñadas en Google Sheets + Apps Script, con Calendar y Gmail APIs. Menos fricción, más citas reales.</p>
       <div class="cards">
         <div class="panel card">
-          <h4>Conversaciones → Reunión</h4>
+          <h4>1) Calendar → Sheets (registro automático)</h4>
           <ul>
-            <li>Operación en <strong>5–6 cuentas</strong> de LinkedIn.</li>
-            <li>Cadencias ME→S→LL + CTAs de agenda.</li>
-            <li><strong>565</strong> reuniones acumuladas; récord semanal 35.</li>
+            <li>Trigger: creación/actualización de evento en Calendar.</li>
+            <li>Acción: agrega/actualiza fila en CRM (fecha, contacto, cuenta, estado, owner).</li>
+            <li>Impacto: visibilidad en tiempo real del pipeline de reuniones.</li>
           </ul>
         </div>
         <div class="panel card">
-          <h4>RevOps en Sheets</h4>
+          <h4>2) Weekly Summary por email</h4>
           <ul>
-            <li>Estatus estandarizados + validaciones.</li>
-            <li>Fórmulas para enviados, %respuesta, horas pico.</li>
-            <li><strong>2×</strong> mejora en conversión a cita.</li>
+            <li>Trigger: cron semanal (Apps Script).</li>
+            <li>Acción: email HTML con citas agendadas, cambios de estatus, pendientes y segundas llamadas.</li>
+            <li>Impacto: alineación del equipo sin reuniones largas; foco en follow-ups críticos.</li>
           </ul>
         </div>
         <div class="panel card">
-          <h4>Automatizaciones clave</h4>
+          <h4>3) One-Click Meeting desde Sheets</h4>
           <ul>
-            <li>Calendar↔Sheets (registro auto de reuniones).</li>
-            <li>Weekly summary + recordatorios por email.</li>
-            <li><strong>One-click meeting</strong> desde Sheets.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CASE STUDIES EXTRA -->
-  <section>
-    <div class="container">
-      <h2 class="section-title">Case Studies (extra)</h2>
-      <div class="cards">
-        <div class="panel card">
-          <h4>ABM Outbound (B2B)</h4>
-          <ul>
-            <li><strong>Problema:</strong> respuestas sin cierre de cita.</li>
-            <li><strong>Solución:</strong> secuencias personalizadas + follow-ups cronometrados.</li>
-            <li><strong>Impacto:</strong> 2× conversión respuesta→reunión.</li>
+            <li>Trigger: botón en hoja (menú personalizado).</li>
+            <li>Acción: crea evento en Calendar con asistentes, meet link y plantilla de descripción.</li>
+            <li>Impacto: reduce fricción para agendar; ahorro de tiempo operativo.</li>
           </ul>
         </div>
         <div class="panel card">
-          <h4>SEO / Afiliados</h4>
+          <h4>4) Ownership Lookup (dueño & origen)</h4>
           <ul>
-            <li><strong>Problema:</strong> tráfico sin intención.</li>
-            <li><strong>Solución:</strong> clusters de contenido + interlinking.</li>
-            <li><strong>Impacto:</strong> ↑ CTR orgánico y conversión (placeholder).</li>
+            <li>Trigger: búsqueda en barra (custom function).</li>
+            <li>Acción: recorre el libro para identificar owner y origen del lead (histórico de hojas).</li>
+            <li>Impacto: cero duplicidades; mejor distribución de contactos.</li>
           </ul>
         </div>
         <div class="panel card">
-          <h4>Activación Comercial</h4>
+          <h4>5) Recordatorios multi-touch (no-shows ↓ ~90%)</h4>
           <ul>
-            <li><strong>Problema:</strong> ruido en captación vs. calidad.</li>
-            <li><strong>Solución:</strong> mensajes por vertical + quick wins a agenda.</li>
-            <li><strong>Impacto:</strong> ↑ tasa de show y oportunidad (placeholder).</li>
+            <li>Trigger: 24/12/1h antes de la reunión.</li>
+            <li>Acción: envía recordatorios personalizados vía Gmail; confirmación/“Sí, asistiré”.</li>
+            <li>Impacto: fuerte caída de no-shows; mejor tasa de show y oportunidad.</li>
+          </ul>
+        </div>
+        <div class="panel card">
+          <h4>6) Seguimiento & Reagendado</h4>
+          <ul>
+            <li>Trigger: estado “no asistió” o “pendiente de 2da reunión”.</li>
+            <li>Acción: email con enlace de auto-reagenda + creación de tarea de seguimiento.</li>
+            <li>Impacto: ↑ segundas llamadas y continuidad del pipeline.</li>
+          </ul>
+        </div>
+        <div class="panel card">
+          <h4>7) KPIs y análisis horario</h4>
+          <ul>
+            <li>Trigger: cron diario/semanal.</li>
+            <li>Acción: cálculo de horas pico de respuesta, % envío, % booking, % show, % activación.</li>
+            <li>Impacto: iteración de cadencias y horarios con base en datos.</li>
           </ul>
         </div>
       </div>
@@ -400,27 +336,42 @@
           <div class="kpi"><h3 data-count="69.73">0</h3><p>% show (asistencia)</p><div class="spark"></div></div>
           <div class="kpi"><h3 data-count="77.92">0</h3><p>% activación (sinergia)</p><div class="spark"></div></div>
         </div>
-        <p class="section-sub">Contexto: en outbound frío, 1–5% de booking es habitual; 6%+ es competitivo. El show rate sube mucho con recordatorios multi-touch y verificación de calendario.</p>
+        <p class="section-sub">Contexto: en outbound frío B2B, 1–5% de booking es habitual; 6%+ es competitivo. El show rate mejora con recordatorios y calendar links limpios.</p>
       </div>
     </div>
   </section>
 
-  <!-- GROWTH & AUTOMATION -->
+  <!-- GROWTH & AUTOMATION STACK -->
   <section id="stack">
     <div class="container">
       <h2 class="section-title">Growth & Automation Stack</h2>
       <p class="section-sub">Herramientas con las que opero a velocidad y precisión.</p>
       <div class="panel pad">
-        <div class="stack">
-          <div class="tool">LinkedIn Sales Navigator</div>
-          <div class="tool">Apollo / Instantly</div>
-          <div class="tool">HubSpot (lite)</div>
-          <div class="tool">Google Sheets + Apps Script</div>
-          <div class="tool">Calendar & Gmail APIs</div>
-          <div class="tool">Zapier / Make</div>
-          <div class="tool">IA Generativa (ChatGPT)</div>
-          <div class="tool">Looker Studio</div>
-          <div class="tool">SEO • Paid Media</div>
+        <div class="cards">
+          <div class="panel card">
+            <h4>Outbound & CRM</h4>
+            <ul>
+              <li>LinkedIn Sales Navigator</li>
+              <li>Apollo / Instantly</li>
+              <li>HubSpot (lite)</li>
+            </ul>
+          </div>
+          <div class="panel card">
+            <h4>Automation & Data</h4>
+            <ul>
+              <li>Google Sheets + Apps Script</li>
+              <li>Calendar & Gmail APIs</li>
+              <li>Zapier / Make</li>
+            </ul>
+          </div>
+          <div class="panel card">
+            <h4>Growth & Analytics</h4>
+            <ul>
+              <li>IA Generativa (ChatGPT)</li>
+              <li>Looker Studio</li>
+              <li>SEO • Paid Media</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
